@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <!-- by: John Villaraza-->
+<!--GROUP HIGH FIVE-->
 
 <html>
-<head>
+  <head>
     <title>High Five | WELCOME SCREEN</title>
-</head>
 
-<body>
+    <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+
+  <body>
     <h1>Welcome Player!</h1>
     <div>
-        <h3>Input Information</h3>
+      <h3>Input Information</h3>
     </div>
     <div>
-        <form>
-            <div>
-                <label for="username">Username</label>
-                <input id="username" type="text"/> 
-            </div>
-            <!--SHOULD SOMEWHAT IMPLEMENT A CLAENDAR FOR THIS-->
-            <div>
-                <label for="Birthday">Birthday</label>
-                <input id="Birthday" type="text"/> 
-            </div>
-             <!-- MALE, FEMALE options -->
-            <div>
-                <label for="Gender">Gender</label>
-                <input id="Gender" type="text"/> 
-            </div>
-        </form>
+      <form>
+        <div>
+          <label for="username">Username</label>
+          <input id="username" type="text" />
+        </div>
+        
+        <div>
+          <label for="Birthday">Birthday</label>
+          <input id="Birthday" />
+        </div>
+        
+        <div>
+          <label for="Gender">Gender</label>
+          <select id="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </form>
     </div>
 
-	
-</body>
-
+    <!-- flatpickr | BIRTHDATE Selection Implementation -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      flatpickr("#Birthday", {});
+    </script>
+  </body>
 </html>
