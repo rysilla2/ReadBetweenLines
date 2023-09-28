@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- by: John Villaraza-->
-<!--GROUP HIGH FIVE-->
+<!-- GROUP HIGH FIVE -->
 
 <html>
   <head>
@@ -11,7 +11,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-
     <style>
       body {
         color: aliceblue;
@@ -34,7 +33,7 @@
 
         <div>
           <label for="Birthday">Birthday</label>
-          <input id="Birthday" />
+          <input id="Birthday" onChange="calculateAge()" />
         </div>
 
         <div>
@@ -45,6 +44,7 @@
             <option value="other">Other</option>
           </select>
         </div>
+        <div id="age"></div>
         <button type="submit" value="submit">Submit</button>
         <button type="reset" value="Reset">Clear</button>
       </form>
@@ -52,7 +52,18 @@
 
     <!-- flatpickr | BIRTHDATE Selection Implementation -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- implementation to get the Age of the user based from the selected birthdate from the calendar-->
     <script>
+      function calculateAge() {
+        const selectedDate = new Date(document.getElementById("Birthday").value);
+        const currentDate = new Date();
+        const age = Math.floor(
+          (currentDate - selectedDate) / (365.25 * 24 * 60 * 60 * 1000)
+        );
+        document.getElementById("age").textContent = `Age: ${age} years`;
+      }
+
       flatpickr("#Birthday", {});
     </script>
   </body>
