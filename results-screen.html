@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .results-section {
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .card {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+        filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+        padding: 2rem;
+        background-color: grey;
+        gap: 1rem;
+
+    }
+
+    .round-detail-entry {
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
+        justify-content: space-between;
+    }
+
+    h1 {
+        padding: 0;
+        margin: 0;
+        text-decoration: underline;
+    }
+
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    hr {
+        width: 105%;
+        margin-left: -2.5%;
+        border-color: black;
+    }
+
+    button {
+        border: none;
+        border-radius: 1.2rem;
+        background-color: grey;
+        padding: 1rem 0;
+        filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+
+    }
+</style>
+
+<body style="display: flex; flex-direction: row; align-content: center; height: 100vh;">
+    <div class="results-section">
+        <div class="card">
+            <h1>Round Details</h1>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                <div class="round-detail-entry" <label>Category:</label>
+                    <label>Animal</label>
+                </div>
+                <div class="round-detail-entry">
+                    <label>Word:</label>
+                    <label>Ferret</label>
+                </div>
+                <div class="round-detail-entry">
+                    <label>Round:</label>
+                    <label>2</label>
+                </div>
+                <div class="round-detail-entry">
+                    <label>Duration:</label>
+                    <label>2:00</label>
+                </div>
+            </div>
+            <hr>
+            <h1>Match Type</h1>
+            <h2> Rematch </h2>
+
+        </div>
+    </div>
+    <div class="results-section">
+        <div style="display: flex; gap: 2rem; flex-direction: column;">
+            <h1 style="text-decoration: none; text-align: center;">Winner!</h1>
+            <h1>Bot/Username</h1>
+            <button>
+                <h1 style="text-decoration: none; text-align: center;">New Game</h1>
+            </button>
+        </div>
+    </div>
+
+</body>
+
+</html>
