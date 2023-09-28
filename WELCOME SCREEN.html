@@ -12,10 +12,14 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
 
-    
+    <style>
+      body {
+        color: aliceblue;
+      }
+    </style>
   </head>
 
-  <body style="background-color:black;">
+  <body style="background-color: black">
     <h1>Welcome Player!</h1>
     <div>
       <h3>Input Information</h3>
@@ -27,12 +31,12 @@
           <label for="username">Username</label>
           <input id="username" type="text" />
         </div>
-        
+
         <div>
           <label for="Birthday">Birthday</label>
           <input id="Birthday" />
         </div>
-        
+
         <div>
           <label for="Gender">Gender</label>
           <select id="Gender">
@@ -41,6 +45,8 @@
             <option value="other">Other</option>
           </select>
         </div>
+        <button type="submit" value="submit">Submit</button>
+        <button type="reset" value="Reset">Clear</button>
       </form>
     </div>
 
@@ -49,7 +55,5 @@
     <script>
       flatpickr("#Birthday", {});
     </script>
-
-
   </body>
 </html>
