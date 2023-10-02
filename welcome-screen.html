@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- by: John Villaraza-->
+<!-- GROUP HIGH FIVE -->
+
+<html>
+  <head>
+    <title>High Five | WELCOME SCREEN</title>
+
+    <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <style>
+      body {
+        color: aliceblue;
+      }
+    </style>
+
+     <!-- flatpickr | BIRTHDATE Selection Implementation -->
+     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+     
+  </head>
+
+  <body style="background-color: black">
+    <h1>Welcome Player!</h1>
+    <div>
+      <h3>Input Information</h3>
+    </div>
+
+    <div>
+      <form>
+        <div>
+          <label for="username">Username</label>
+          <input id="username" type="text" />
+        </div>
+
+        <div>
+          <label for="Birthday">Birthday</label>
+          <input id="Birthday" onChange="calculateAge()" />
+        </div>
+
+        <div>
+          <label for="Gender">Gender</label>
+          <select id="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div id="age"></div>
+        <button type="submit" value="submit">Submit</button>
+        <button type="reset" value="Reset">Clear</button>
+      </form>
+    </div>
+
+    <!-- implementation to get the Age of the user based from the selected birthdate from the calendar-->
+    <script src="./welcome-screen-script.js"></script>
+  </body>
+</html>
