@@ -61,6 +61,8 @@
 
 
         <div class="center">
+            <p>Countdown for 60 seconds: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
+            <button onclick="countdown()">Start Timer</button>
             <div class="input">
                 <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
 
@@ -69,6 +71,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 <script>
     function setUserInput() {
@@ -78,13 +82,28 @@
     const setRestultsData = () => {
         sessionStorage.setItem('resultsData', JSON.stringify({
             category: 'Animal',
-            word: 'Kangaroo',
+            word: 'input',
             round: 2,
             duration: '2:00',
             winner: 'Player 1',
             matchType: 'Rematch'
         }))
     };
+
+    function countdown() {
+        var seconds = 60; // Number of seconds to count down
+
+        var countdownTimer = setInterval(function () {
+            seconds--;
+
+            document.getElementById("countdown").innerHTML = seconds + "s";
+
+            if (seconds <= 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "Expired";
+            }
+        }, 1000);
+    }
 
 </script>
 
