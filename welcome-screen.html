@@ -16,6 +16,10 @@
         color: aliceblue;
       }
     </style>
+
+     <!-- flatpickr | BIRTHDATE Selection Implementation -->
+     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+     
   </head>
 
   <body style="background-color: black">
@@ -50,21 +54,7 @@
       </form>
     </div>
 
-    <!-- flatpickr | BIRTHDATE Selection Implementation -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
     <!-- implementation to get the Age of the user based from the selected birthdate from the calendar-->
-    <script>
-      function calculateAge() {
-        const selectedDate = new Date(document.getElementById("Birthday").value);
-        const currentDate = new Date();
-        const age = Math.floor(
-          (currentDate - selectedDate) / (365.25 * 24 * 60 * 60 * 1000)
-        );
-        document.getElementById("age").textContent = `Age: ${age} years`;
-      }
-
-      flatpickr("#Birthday", {});
-    </script>
+    <script src="./welcome-screen-script.js"></script>
   </body>
 </html>
