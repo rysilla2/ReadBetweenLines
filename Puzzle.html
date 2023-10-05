@@ -2,6 +2,7 @@
 
 <head>
     <title>Ready to Play</title>
+    <script type = "text/javascript" src="ApiHandler.js"></script>
 </head>
 <style>
     .button1 {
@@ -100,9 +101,8 @@
             <button onclick="countdown()">Start Timer</button>
             <div class="input">
                 <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
-
-                <button class="button1">Submit</button> <!--Buttons for game operations-->
-                <button class="button2">Pass</button>
+                <button class="button1" onclick="setUserInput()">Submit</button> <!--Buttons for game operations-->
+                <button class="button2" onclick="testCall()">Pass</button>
                 <button class="button3">Reset</button>
                 <button class="button4">Give Up</button>
             </div>
@@ -112,10 +112,13 @@
 
 </body>
 <script>
+
     function setUserInput() {
         const input = document.getElementById('word');
         sessionStorage.setItem('word', input.value);
+        receiveGuess(input.value)
     }
+
     const setRestultsData = () => {
         sessionStorage.setItem('resultsData', JSON.stringify({
             category: 'Animal',
