@@ -2,10 +2,9 @@
 
 <head>
     <title>Ready to Play</title>
-    <script type = "text/javascript" src="ApiHandler.js"></script>
+    <script type="text/javascript" src="ApiHandler.js"></script>
 </head>
 <style>
-
     button {
         border-radius: 10px;
     }
@@ -95,28 +94,65 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+
+
+    .row {
+        display: flex;
+    }
+
+    /* Create two equal columns that sits next to each other */
+    .column {
+        flex: 75%;
+        padding: 10px;
+        height: 100vh;
+        /* Should be removed. Only for demonstration */
+    }
+
+    #leftPanel {
+        flex: 25%;
+        padding: 10px;
+        height: 100vh;
+    }
+
+    .header {
+        background-color: #4CAF50;
+        flex: 100%;
+        height: 40px
+    }
 </style>
 
 <body>
     <div id="container">
-        <div class="center">
+
+        <!-- <div class="center">
             <h1>Wordtopia</h1>
-            <div>
-                <p id="hintLabel">Hint: </p>
-                <p id="categoryLabel">Category: </p>
-                <p id="roundboard">Round: </p>
-                <p id="scoreboard">Your Score: </p>
-                <p id="computerScoreboard">PC Score: </p>
+        </div> -->
+
+        <div class="header">
+
+        </div>
+
+        <div class="row">
+            <div id="leftPanel" class="column" >
+                <div>
+                    <p>Countdown: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
+                    <p id="categoryLabel">Category: </p>
+                    <p id="roundboard">Round: </p>
+                    <p id="scoreboard">Your Score: </p>
+                    <p id="computerScoreboard">PC Score: </p>
+                </div>
             </div>
-            <p>Countdown: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
-            <button onclick="countdown()">Start Timer</button>
-            <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
-            <button id="startButton" class="button1" onclick="startPressed()">Start</button>
-            <div id="controlPanel" class="input" style="display: none">
-                <button class="button1" onclick="setUserInput()">Submit</button> <!--Buttons for game operations-->
-                <button class="button2" onclick="testCall()">Pass</button>
-                <button class="button3" onclick="resetScore()">Reset</button>
-                <button class="button4">Give Up</button>
+            <div class="column">
+                <p id="hintPanel">Hint here</p>
+                <button onclick="countdown()">Start Timer</button>
+                <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
+                <button id="startButton" class="button1" onclick="startPressed()">Start</button>
+                <div id="controlPanel" class="input" style="display: none">
+                    <button class="button1" onclick="setUserInput()">Submit</button> <!--Buttons for game operations-->
+                    <button class="button2" onclick="testCall()">Pass</button>
+                    <button class="button3" onclick="resetScore()">Reset</button>
+                    <button class="button4">Give Up</button>
+                </div>
             </div>
         </div>
     </div>
@@ -124,16 +160,16 @@
 
 </body>
 <script>
-    
+
     var userScore = 0;
     var computerScore = 0;
-    var difficulty = "Lupos" ; //temp
-    var category = "Animal" ; //temp 
+    var difficulty = "Lupos"; //temp
+    var category = "Animal"; //temp 
     var rounds = 1;
     var showControlPanel = false; //control panel is invisible until player presses start button.
 
     initGame();
-    
+
     function startPressed() {
         var a = document.getElementById("startButton")
         a.style.display = "none"
@@ -148,8 +184,8 @@
         console.log("Player chooses category: " + category)
         console.log("Player chooses difficulty: " + difficulty)
         document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/3";
-        document.getElementById("categoryLabel").innerHTML = "Hint: ";
-        
+        document.getElementById("categoryLabel").innerHTML = "Category: ";
+
     }
 
 
@@ -162,7 +198,7 @@
         //checks if someone has already won the game
         if (userScore >= 3 || computerScore >= 3) {
             resetScore();
-        
+
         }
     }
 
@@ -179,7 +215,7 @@
         if (isWinner) {
             userScore += 1;
             updateScores();
-        } 
+        }
     }
 
     //sets user input and sends it to api to guess
@@ -203,7 +239,7 @@
         }))
     };
 
-    
+
     function countdown() {
         var seconds = 60; // Number of seconds to count down
 
