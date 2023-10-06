@@ -94,16 +94,22 @@
 
 <body>
     <div id="container">
-
-
         <div class="center">
-            <p>Countdown for 60 seconds: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
+            <h1>Wordtopia</h1>
+            <div>
+                <p id="hintLabel">Hint: </p>
+                <p id="categoryLabel">Category: </p>
+                <p id="roundboard">Round: </p>
+                <p id="scoreboard">Your Score: </p>
+                <p id="computerScoreboard">PC Score: </p>
+            </div>
+            <p>Countdown: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
             <button onclick="countdown()">Start Timer</button>
             <div class="input">
                 <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
                 <button class="button1" onclick="setUserInput()">Submit</button> <!--Buttons for game operations-->
                 <button class="button2" onclick="testCall()">Pass</button>
-                <button class="button3">Reset</button>
+                <button class="button3" onclick="resetScore()">Reset</button>
                 <button class="button4">Give Up</button>
             </div>
         </div>
@@ -112,11 +118,60 @@
 
 </body>
 <script>
+    
+    var userScore = 0;
+    var computerScore = 0;
+    var difficulty = "Lupos" ; //temp
+    var category = "Animal" ; //temp 
+    var rounds = 1;
 
+    initGame();
+    
+    function initGame(category, difficulty) {
+
+        console.log("Player chooses category: " + category)
+        console.log("Player chooses difficulty: " + difficulty)
+        document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/3";
+        document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/3";
+        document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/3";
+        
+    }
+
+    //this updates the scoreboard based on the winner of the last round
+    function updateScores() {
+        document.getElementById("scoreboard").innerHTML = "Your Score: " + userScore;
+        document.getElementById("computerScoreboard").innerHTML = "PC Score: " + computerScore;
+        document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/3";
+
+        //checks if someone has already won the game
+        if (userScore >= 3 || computerScore >= 3) {
+            resetScore();
+        }
+    }
+
+    //resets the score back to zero when game is played again
+    function resetScore() {
+        userScore = 0;
+        computerScore = 0;
+        updateScores();
+    }
+
+    //adds a score based on the guessed word
+    function addScore(isWinner) {
+        if (isWinner) {
+            userScore += 1;
+            updateScores();
+        } else {
+            computerScore += 1;
+            updateScores();
+        }
+    }
+
+    //sets user input and sends it to api to guess
     function setUserInput() {
         const input = document.getElementById('word');
         sessionStorage.setItem('word', input.value);
-        receiveGuess(input.value)
+        addScore(receiveGuess(input.value));
     }
 
     const setRestultsData = () => {
@@ -130,6 +185,7 @@
         }))
     };
 
+    
     function countdown() {
         var seconds = 60; // Number of seconds to count down
 
@@ -137,6 +193,10 @@
             seconds--;
 
             document.getElementById("countdown").innerHTML = seconds + "s";
+
+            if (seconds == 50) {
+                resetScore();
+            }
 
             if (seconds <= 0) {
                 clearInterval(countdownTimer);
