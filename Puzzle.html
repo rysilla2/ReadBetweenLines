@@ -97,8 +97,7 @@
 
 
         <div class="center">
-            <p>Countdown for 60 seconds: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
-            <button onclick="countdown()">Start Timer</button>
+            <p>Countdown for 60 seconds: <span id="countdown"></span></p><!--New countdown timer-->
             <div class="input">
                 <input type="text" id="word" name="word" placeholder="Guess the Answer"><br><br>
                 <button class="button1" onclick="setUserInput()">Submit</button> <!--Buttons for game operations-->
@@ -133,7 +132,7 @@
     function countdown() {
         var seconds = 60; // Number of seconds to count down
 
-        var countdownTimer = setInterval(function () {//this is for the timer only 60s
+        var countdownTimer = setInterval(function () {
             seconds--;
 
             document.getElementById("countdown").innerHTML = seconds + "s";
@@ -144,6 +143,9 @@
             }
         }, 1000);
     }
+
+    // Start the countdown automatically when the page loads
+    countdown();
 
 </script>
 
