@@ -1,13 +1,13 @@
 * {
-  margin: 5;
-  padding: 5;
-  font-family: sans-serif;
-}
-
-body {
-  color: aliceblue;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75)),
-    url(BG.png);
-  background-size: cover;
-  background-position: center;
-}
+    margin: 5;
+    padding: 5;
+    font-family: sans-serif;
+  }
+  
+  body {
+    color: aliceblue;
+    background-image: url(test1.png);
+    background-size:auto;
+    background-position: auto;
+  }
+  
