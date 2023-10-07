@@ -1,16 +1,13 @@
-const setRestultsData = () => {
-  sessionStorage.setItem(
-    "resultsData",
-    JSON.stringify({
-      category: "Animal",
-      word: "Kangaroo",
-      round: 2,
-      duration: "2:00",
-      winner: "Player 1",
-      matchType: "Rematch",
-    })
-  );
-};
+// const setRestultsData = () => {
+//     sessionStorage.setItem('resultsData', JSON.stringify({
+//         category: 'Animal',
+//         word: 'Kangaroo',
+//         round: 2,
+//         duration: '2:00',
+//         winner: 'Player 1',
+//         matchType: 'Rematch'
+//     }))
+// };
 
 const getResultsData = () => {
   const resultsData = sessionStorage.getItem("resultsData");
@@ -28,10 +25,43 @@ const populateDetails = () => {
   document.getElementById("matchType").innerHTML = data.matchType;
 };
 
-setRestultsData();
-populateDetails();
+// setRestultsData();
 
-const onNewGame = () => {
-  window.location.href =
-    document.location.origin + "/features/welcome/welcome-screen.html";
+const onNewGame = async () => {
+  // implement restart game method here
+  const message = {
+    startTime: `Start Time: ${startTime}`,
+    endTime: `End Time: ${endTime}`,
+    duration: `Duration ${duration}`,
+    difficulty: `Difficulty ${difficulty}`,
+    playerName: `Player Name ${playerName}`,
+    gender: `Gender ${gender}`,
+    birthday: `Birthday ${birthday}`,
+    age: `Age ${age}`,
+    matchDetails: "Match Details",
+    type: `Type: ${type}`,
+    roundDetails: "Round Details",
+    category: `Category: ${category}`,
+    word: `Word: ${word}`,
+    winner: `Winner: ${winner}`,
+    roundDuration: `Round Duration: ${roundDuration}`,
+    
+  }
+  let headers = new Headers();
+  headers.append("Content-Type", "application/x-www-form-urlencoded");
+
+  let body = new URLSearchParams();
+  body.append("token", "xoxb-5873417732163-5873477801299-XVz4AckK84mhS9nczWlEZ9mu");
+  body.append("channel", "C05RGRZ02RL");
+  body.append("text", "Hello");
+
+  let requestOptions = {
+    method: "POST",
+    headers: headers,
+    body: body,
+    redirect: "follow",
+  };
+
+  fetch("https://slack.com/api/chat.postMessage", requestOptions);
+  console.log("API call finished");
 };
