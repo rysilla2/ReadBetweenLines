@@ -4,6 +4,18 @@
     font-family: sans-serif;
   }
   
+  .welcome{
+    color: yellow;
+    font-size: larger;
+  }
+
+  .user.information.form{
+    display:flex;
+    flex-direction: column;
+    color: aqua;
+    max-width: 150px;
+  }
+
   body {
     color: aliceblue;
     background-image: url(test1.png);

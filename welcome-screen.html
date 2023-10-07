@@ -4,7 +4,7 @@
 
 <html>
   <head>
-    <title>High Five | WELCOME SCREEN</title>
+    <title>Garden of Words | WELCOME SCREEN</title>
 
     <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
     <link
@@ -20,24 +20,20 @@
   </head>
 
   <body>
-    <h1>Welcome Player!</h1>
-    <div>
+    <div class = "welcome">
+    <h1>Welcome to Garden of Words</h1>
       <h3>Input Information</h3>
     </div>
 
     <div>
       <form>
-        <div>
+        <div class="user information form">
           <label for="username">Username</label>
           <input id="username" type="text" />
-        </div>
-
-        <div>
+        
           <label for="Birthday">Birthday</label>
           <input id="Birthday" onChange="calculateAge()" />
-        </div>
-
-        <div>
+        
           <label for="Gender">Gender</label>
           <select id="Gender">
             <option value="male">Male</option>
@@ -46,6 +42,7 @@
           </select>
         </div>
 
+        <!-- keeping this for now- for testing-->
         <!-- Display age and difficulty-->
         <div id="age"></div>
         <div id="difficulty"></div>
