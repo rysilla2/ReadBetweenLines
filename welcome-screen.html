@@ -11,18 +11,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <style>
-      body {
-        color: aliceblue;
-      }
-    </style>
 
-     <!-- flatpickr | BIRTHDATE Selection Implementation -->
-     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-     
+    <link rel="stylesheet" href="welcome-screen-style.css" />
+
+    <!-- flatpickr | BIRTHDATE Selection Implementation -->
+    <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
 
-  <body style="background-color: black">
+  <body>
     <h1>Welcome Player!</h1>
     <div>
       <h3>Input Information</h3>
@@ -48,7 +45,7 @@
             <option value="other">Other</option>
           </select>
         </div>
-        
+
         <!-- Display age and difficulty-->
         <div id="age"></div>
         <div id="difficulty"></div>
@@ -57,6 +54,8 @@
         <button type="reset" value="Reset">Clear</button>
       </form>
     </div>
+
+   
 
     <script src="./welcome-screen-script.js"></script>
   </body>
