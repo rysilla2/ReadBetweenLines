@@ -31,19 +31,19 @@
           <form>
             <div class="user information form">
               <label for="username">Username</label>
-              <input id="username" type="text" />
+              <input required id="username" type="text" value="Renato"/>
 
               <label for="Birthday">Birthday</label>
-              <input id="Birthday" onChange="calculateAge()" />
+              <input reuiqred id="Birthday" />
 
               <label for="Gender">Gender</label>
-              <select id="Gender">
+              <select required id="Gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
               </select>
 
-              <button type="submit" value="start">START</button>
+              <button onclick="onStart()" value="start">START</button>
             </div>
 
             <!-- UNCOMMENT IF FOR TESTING -->

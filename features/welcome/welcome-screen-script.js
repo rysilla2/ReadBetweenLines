@@ -16,9 +16,40 @@ function calculateAge() {
   } else {
     difficulty = "Philosopher";
   }
-
-  document.getElementById("age").textContent = `Age: ${age} years`;
-  document.getElementById("difficulty").textContent = `You are a ${difficulty}`;
+  return age;
+  // document.getElementById("age").textContent = `Age: ${age} years`;
+  // document.getElementById("difficulty").textContent = `You are a ${difficulty}`;
 }
 
 flatpickr("#Birthday", {});
+
+const onStart = () => {
+  try {
+    let birthday = document.getElementById("Birthday").value;
+    let username = document.getElementById("username").value;
+    let gender = document.getElementById("Gender").value;
+    let age = calculateAge();
+    if (birthday === '' || username === '' || gender === '') {
+      alert('Please fill out all details');
+      throw 'Information is empty';
+    }
+    if(age < 4) {
+      alert('age is too low (JM pls change the logic to go to the screen)');
+    }
+    sessionStorage.setItem(
+      "userInformation",
+      JSON.stringify({
+        name: username,
+        birthday: birthday,
+        gender: gender,
+        age: calculateAge(),
+      })
+    );
+  } catch (e) {
+    console.log("Invalid Information | Error:", e);
+    return;
+  }
+  console.log("start pressed and condition passed");
+  const test = sessionStorage.getItem("userInformation");
+  console.log(JSON.parse(test));
+};
