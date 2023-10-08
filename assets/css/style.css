@@ -3,12 +3,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #aee2e9;
+    background-color: #95ae93;
 }
 
 header {
-    background-color: #87CEEB;
-    color: #000000;
+    background-color: #2b5427;
+    color:#95ae93;
     text-align: left;
     padding: 1rem;
 }
@@ -20,13 +20,7 @@ h1 {
 /* Style for the images */
 .image-container {
     text-align: center;
-    margin: 2rem 0; /* Add space between images */
-}
-
-.square-image {
-    width: 200px; /* Set a fixed width for square images */
-    height: 200px; /* Set a fixed height for square images */
-    margin: 0 3rem; /* Add space between images horizontally */
+    margin: 1rem 0; /* Add space between images */
 }
 
 .form-container {
@@ -52,18 +46,16 @@ h1 {
   }
   
   .btn-choose {
-    background-color: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
+    background-color: #194614;
+    color: #ffffff;
     border-radius: 5px;
     font-size: 16px;
     margin-right: 10px;
   }
 
   .btn-randomize {
-    background-color: #007bff;
+    background-color: #194614;
     color: #fff;
-    border: 1px solid #007bff;
     border-radius: 5px;
     font-size: 16px;
     
@@ -93,8 +85,8 @@ button:hover {
 .difficulty-rectangle {
     width: 150px;
     height: 80px;
-    background-color: #0f68bbe9;
-    color: #84e5f6;
+    background-color: #194614;
+    color: #e8e8e8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,12 +96,12 @@ button:hover {
 }
 
 .difficulty-rectangle:hover {
-    background-color: #0056b3;
+    background-color: #00b71b;
 }
 
 /* Add a style for the 'active' button */
 .difficulty-rectangle.active {
-    background-color: #0056b3;
+    background-color: #00b71b;
 }
 
 /* Center the difficulty descriptions and add some margin */
