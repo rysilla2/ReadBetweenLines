@@ -5,14 +5,10 @@ function calculateAge() {
   const age = Math.floor(
     (currentDate - selectedDate) / (365.25 * 24 * 60 * 60 * 1000)
   );
-
-  if (age < 4) {
-    alert('This is temporary but this indicates your age is too low')
-  }
+  return age;
 }
 
 const getDifficulty = (age) => {
-
   let difficulty = "";
 
   /* Difficulty Based on user's age */
@@ -23,24 +19,24 @@ const getDifficulty = (age) => {
   } else {
     difficulty = "Philosopher";
   }
-}
+};
 flatpickr("#birthday", {});
 
 const onStart = () => {
-  console.log("onStart function is called")
+  document.location.href =
+    document.location.origin + "/features/welcome/age-restriction.html"; //STILL NOT WORKING
+  console.log("onStart function is called");
   try {
-    let birthday = document.getElementById("Birthday").value;
+    let birthday = document.getElementById("birthday").value;
     let username = document.getElementById("username").value;
-    let gender = document.getElementById("Gender").value;
+    let gender = document.getElementById("gender").value;
     let age = calculateAge();
-    if (birthday === '' || username === '' || gender === '') {
-      alert('Please fill out all details');
-      throw 'Information is empty';
+    if (birthday === "" || username === "" || gender === "") {
+      alert("Please fill out all details");
+      throw "Information is empty";
     }
-    if(age < 4) {
+    if (age < 4) {
       console.log("Redirecting to age restriction page.");
-      document.location.href = document.location.origin + "/features/results/age-restriction.html"; //STILL NOT WORKING
-;
       return;
     }
     sessionStorage.setItem(

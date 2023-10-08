@@ -28,29 +28,35 @@
         </div>
 
         <div>
-          <form>
-            <div class="user-information-form">
-              <label for="username">Username</label>
-              <input required id="username" type="text" placeholder="Username"/>
+          <div class="user-information-form">
+            <label for="username">Username</label>
+            <input
+              required
+              id="username"
+              type="text"
+              value="renato"
+              placeholder="Username"
+            />
 
-              <label for="birthday">Birthday</label>
-              <input required id="birthday" type="date" onChange="calculateAge()" placeholder="Birthday" />
+            <label for="birthday">Birthday</label>
+            <input
+              required
+              id="birthday"
+              type="date"
+              onChange="calculateAge()"
+              value="2022-01-19"
+              placeholder="Birthday"
+            />
 
-              <label for="gender">Gender</label>
-              <select id="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
 
-              <button onclick="onStart()" value="start">START</button>
-            </div>
-
-            <!-- UNCOMMENT IF FOR TESTING -->
-            <!-- Display age and difficulty -->
-            <div id="age"></div>
-            <div id="difficulty"></div>
-          </form>
+            <button onclick="onStart()">START</button>
+          </div>
         </div>
       </div>
 
