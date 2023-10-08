@@ -31,10 +31,10 @@
           <form>
             <div class="user-information-form">
               <label for="username">Username</label>
-              <input id="username" type="text"  placeholder="Username"/>
+              <input required id="username" type="text" placeholder="Username"/>
 
               <label for="birthday">Birthday</label>
-              <input id="birthday" type="date" onChange="calculateAge()" placeholder="Birthday" />
+              <input required id="birthday" type="date" onChange="calculateAge()" placeholder="Birthday" />
 
               <label for="gender">Gender</label>
               <select id="gender">
@@ -43,7 +43,7 @@
                 <option value="other">Other</option>
               </select>
 
-              <button type="submit" value="start">START</button>
+              <button onclick="onStart()" value="start">START</button>
             </div>
 
             <!-- UNCOMMENT IF FOR TESTING -->
