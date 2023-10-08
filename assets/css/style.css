@@ -51,12 +51,22 @@ h1 {
     justify-content: center;
   }
   
-  .btn-primary {
+  .btn-choose {
     background-color: #007bff;
     color: #fff;
     border: 1px solid #007bff;
     border-radius: 5px;
     font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .btn-randomize {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    
   }
 
 button {
