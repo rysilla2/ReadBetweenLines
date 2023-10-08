@@ -12,6 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
 
+    <link rel="stylesheet" href="../../main-css/main-styles.css" />
     <link rel="stylesheet" href="welcome-screen-style.css" />
 
     <!-- flatpickr | BIRTHDATE Selection Implementation -->
@@ -20,24 +21,23 @@
   </head>
 
   <body>
-    <div class="transparent screen">
+    <div class="transparent-screen">
       <div class="container">
-        <div class="welcome">
-          <h1>Welcome to Garden of Words</h1>
-          <h3>Input Information</h3>
+        <div class="main-title">
+          <h1>Garden of Words</h1>
         </div>
 
         <div>
           <form>
-            <div class="user information form">
+            <div class="user-information-form">
               <label for="username">Username</label>
-              <input required id="username" type="text" value="Renato"/>
+              <input required id="username" type="text" placeholder="Username"/>
 
-              <label for="Birthday">Birthday</label>
-              <input reuiqred id="Birthday" />
+              <label for="birthday">Birthday</label>
+              <input required id="birthday" type="date" onChange="calculateAge()" placeholder="Birthday" />
 
-              <label for="Gender">Gender</label>
-              <select required id="Gender">
+              <label for="gender">Gender</label>
+              <select id="gender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -47,9 +47,9 @@
             </div>
 
             <!-- UNCOMMENT IF FOR TESTING -->
-            <!-- Display age and difficulty
+            <!-- Display age and difficulty -->
             <div id="age"></div>
-            <div id="difficulty"></div> -->
+            <div id="difficulty"></div>
           </form>
         </div>
       </div>
