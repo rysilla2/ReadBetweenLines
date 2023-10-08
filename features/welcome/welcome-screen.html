@@ -20,40 +20,41 @@
   </head>
 
   <body>
-    <div class = "welcome">
-    <h1>Welcome to Garden of Words</h1>
-      <h3>Input Information</h3>
-    </div>
-
-    <div>
-      <form>
-        <div class="user information form">
-          <label for="username">Username</label>
-          <input id="username" type="text" />
-        
-          <label for="Birthday">Birthday</label>
-          <input id="Birthday" onChange="calculateAge()" />
-        
-          <label for="Gender">Gender</label>
-          <select id="Gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
+    <div class="transparent screen">
+      <div class="container">
+        <div class="welcome">
+          <h1>Welcome to Garden of Words</h1>
+          <h3>Input Information</h3>
         </div>
 
-        <!-- keeping this for now- for testing-->
-        <!-- Display age and difficulty-->
-        <div id="age"></div>
-        <div id="difficulty"></div>
+        <div>
+          <form>
+            <div class="user information form">
+              <label for="username">Username</label>
+              <input id="username" type="text" />
 
-        <button type="submit" value="submit">Submit</button>
-        <button type="reset" value="Reset">Clear</button>
-      </form>
+              <label for="Birthday">Birthday</label>
+              <input id="Birthday" onChange="calculateAge()" />
+
+              <label for="Gender">Gender</label>
+              <select id="Gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+
+              <button type="submit" value="start">Submit</button>
+            </div>
+
+            <!-- keeping this for now- for testing-->
+            <!-- Display age and difficulty-->
+            <div id="age"></div>
+            <div id="difficulty"></div>
+          </form>
+        </div>
+      </div>
+
+      <script src="./welcome-screen-script.js"></script>
     </div>
-
-   
-
-    <script src="./welcome-screen-script.js"></script>
   </body>
 </html>
