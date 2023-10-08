@@ -29,14 +29,14 @@
 }
 
 body {
-  background-image: url("background.jpg");
+  background-image: url("background2.png");
   background-size: auto;
   background-position: auto;
 }
 
 .welcome {
   color: #d0e7d2;
-  font-size: larger;
+  font-size:x-large;
   width: 100%;
   position: absolute;
   top: 20%; /*THIS TOP THINGY IS FOR ADJUSTING POSITION VERTICALLY */
@@ -84,4 +84,15 @@ button[value="start"] {
   width: 100px;
   height: 30px;
   border-radius: 5px;
+}
+
+/******************** FOR AGE RESTRICTION PAGE ***********************/
+.age.restriction.message{
+  color: aliceblue;
+  max-width: 400px;
+  position: absolute;
+  top: calc(30% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }

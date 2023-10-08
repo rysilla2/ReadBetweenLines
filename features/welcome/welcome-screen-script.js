@@ -5,7 +5,7 @@ function calculateAge() {
   const age = Math.floor(
     (currentDate - selectedDate) / (365.25 * 24 * 60 * 60 * 1000)
   );
-
+  
   let difficulty = "";
 
   /* Difficulty Based on user's age */
@@ -16,6 +16,7 @@ function calculateAge() {
   } else {
     difficulty = "Philosopher";
   }
+  console.log("Age: ", age);
   return age;
   // document.getElementById("age").textContent = `Age: ${age} years`;
   // document.getElementById("difficulty").textContent = `You are a ${difficulty}`;
@@ -24,6 +25,7 @@ function calculateAge() {
 flatpickr("#Birthday", {});
 
 const onStart = () => {
+  console.log("onStart function is called")
   try {
     let birthday = document.getElementById("Birthday").value;
     let username = document.getElementById("username").value;
@@ -34,7 +36,10 @@ const onStart = () => {
       throw 'Information is empty';
     }
     if(age < 4) {
-      alert('age is too low (JM pls change the logic to go to the screen)');
+      console.log("Redirecting to age restriction page.");
+      document.location.href = document.location.origin + "/features/results/age-restriction.html"; //STILL NOT WORKING
+;
+      return;
     }
     sessionStorage.setItem(
       "userInformation",
