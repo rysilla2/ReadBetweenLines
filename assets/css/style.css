@@ -88,11 +88,17 @@ button:hover {
 }
 
 /* Center the difficulty descriptions and add some margin */
-.difficulty-description {
-    margin-top: 1rem;
+.difficulty-descriptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .difficulty-description {
+    flex: 1;
     text-align: center;
-    margin: 0 auto;
-}
+  }
   
 
 .difficulty-rectangle i {
