@@ -28,34 +28,27 @@
                     <div class="image-container">
                         <div class="container text-center mx-auto">
 
-                            <!-- Difficulty Levels Section -->
                             <h2>Choose Difficulty Level</h2>
-                            <div class="row">
-                              <div class="col-md-4">
-                                <div class="difficulty-button">
-                                  <div class="difficulty-rectangle" id="easy">
-                                    <i class="fas fa-school"></i>
-                                    <div class="indicator-circle"></div>
-                                  </div>
-                                </div>
-                                
-                              </div>
-                              <div class="col-md-4">
-                                <div class="difficulty-button">
-                                  <div class="difficulty-rectangle" id="medium">
-                                    <i class="fa fa-person-chalkboard"></i>
-                                  </div>
+                            <div class="difficulty-buttons">
+                              <div class="difficulty-button">
+                                <div class="difficulty-rectangle" id="easy">
+                                  <i class="fas fa-school"></i>
+                                  <div class="indicator-circle"></div>
                                 </div>
                               </div>
-                              <div class="col-md-4">
-                                <div class="difficulty-button">
-                                  <div class="difficulty-rectangle" id="hard">
-                                    <i class="fa fa-scroll"></i>
-                                  </div>
+                              <div class="difficulty-button">
+                                <div class="difficulty-rectangle" id="medium">
+                                  <i class="fa fa-person-chalkboard"></i>
+                                </div>
+                              </div>
+                              <div class="difficulty-button">
+                                <div class="difficulty-rectangle" id="hard">
+                                  <i class="fa fa-scroll"></i>
                                 </div>
                               </div>
                             </div>
                           </div>
+
                           </div>
                       
                           <div class="row difficulty-descriptions">
@@ -90,20 +83,20 @@
                     </div>
                     <br>
                     <!-- category selection -->
-                    <div class="custom-form">
+                    <div class="form-container">
+                        <h2>Category</h2>
                         <form>
-                            <div class="form-group">
-                                <label for="category"><h2>Category</h2></label>
-                                <input type="text" class="form-control" id="category" required="required" placeholder="Enter any category">
-                            
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="category" required="required" placeholder="Enter any category">
+                          </div>
+                          <br>
+                          <div class="button-container">
+                            <button type="submit" class="btn btn-primary">Choose</button>
+                            <button type="submit" class="btn btn-success">Randomize</button>
+                          </div>
                         </form>
-                        <br>
-                        <br>
-                        <div class="button-container">
-                            <button class="btn btn-primary">Choose</button>
-                            <button class="btn btn-success">Randomize</button>
-                        </div>
-                    </div>
+                      </div>
+                      </div>
                 </div>
             </div>
         </div>

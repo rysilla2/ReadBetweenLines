@@ -29,9 +29,35 @@ h1 {
     margin: 0 3rem; /* Add space between images horizontally */
 }
 
-.custom-form {
+.form-container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .form-container h2 {
     text-align: center;
-}
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+  }
 
 button {
     padding: 1rem 2rem;
@@ -43,27 +69,16 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #4eb55de9;
 }
-
-
 
 .difficulty-buttons {
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    height: 100%; /* Make the parent container fill its available height */
-}
-
-.difficulty-button {
-    cursor: pointer;
-    border-radius: 50px;
-    background: #66d0e8;
-    padding: 10px 20px; /* Adjust padding as needed */
-    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-}
+  }
+
 
 .difficulty-rectangle {
     width: 150px;
