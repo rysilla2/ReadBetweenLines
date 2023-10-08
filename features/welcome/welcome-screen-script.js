@@ -5,7 +5,7 @@ function calculateAge() {
   const age = Math.floor(
     (currentDate - selectedDate) / (365.25 * 24 * 60 * 60 * 1000)
   );
-  
+
   let difficulty = "";
 
   /* Difficulty Based on user's age */
