@@ -26,7 +26,6 @@ body {
   justify-self: center;
 }
 
-<<<<<<< HEAD
 /* THIS IS TO MAKE THE BACKGROUND IMAGE TRANSPARENT(the linear gradient does not really work) */
 .transparent.screen {
   background: rgba(0, 0, 0, 0.7);
@@ -43,10 +42,7 @@ body {
   background-position: auto;
 }
 
-.welcome {
-=======
 .main-title {
->>>>>>> 83b7d38a5261cf00a1c87beaf3670a4c6f406c41
   color: #d0e7d2;
   font-size:x-large;
   width: 100%;
@@ -74,7 +70,6 @@ body {
   border-radius: 5px;
 }
 
-<<<<<<< HEAD
 /******************** FOR AGE RESTRICTION PAGE ***********************/
 .age.restriction.message{
   color: aliceblue;
@@ -85,7 +80,6 @@ body {
   transform: translateX(-50%);
   text-align: center;
 }
-=======
 /* Applies to green start button */
 button[value="start"] {
   background-color: green;
@@ -96,5 +90,3 @@ button[value="start"] {
   border: none;
   align-self: end;
 }
-
->>>>>>> 83b7d38a5261cf00a1c87beaf3670a4c6f406c41
