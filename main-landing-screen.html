@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+
+<!--Main Landing Page-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Wordtopia </title>
+    <!-- REQUIRED STYLE SHEETS -->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Wordtopia</h1>
+    </header>
+
+    <br>
+
+    <section id="images-form-buttons-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <div class="image-container">
+                        <div class="container text-center mx-auto">
+
+                            <!-- Difficulty Levels Section -->
+                            <h2>Choose Difficulty Level</h2>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="difficulty-button">
+                                  <div class="difficulty-rectangle" id="easy">
+                                    <i class="fas fa-school"></i>
+                                    <div class="indicator-circle"></div>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                              <div class="col-md-4">
+                                <div class="difficulty-button">
+                                  <div class="difficulty-rectangle" id="medium">
+                                    <i class="fa fa-person-chalkboard"></i>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="difficulty-button">
+                                  <div class="difficulty-rectangle" id="hard">
+                                    <i class="fa fa-scroll"></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                      
+                          <div class="row difficulty-descriptions">
+                            <div class="col-md-4">
+                              <div class="difficulty-description">
+                                <h3>LUDUS</h3>
+                                <p>TIME: 40 Seconds</p>
+                                <p>ROUNDS: 10</p>
+                                <p>LIVES: 1</p>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="difficulty-description">
+                                <h3>RHETOR</h3>
+                                <p>TIME: 40 Seconds</p>
+                                <p>ROUNDS: 10</p>
+                                <p>LIVES: 1</p>
+                                <p></p>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="difficulty-description">
+                                <h3>PHILOSOPHER</h3>
+                                <p>TIME: 40 Seconds</p>
+                                <p>ROUNDS: 10</p>
+                                <p>LIVES: 1</p>
+                                <p></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- category selection -->
+                    <div class="custom-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="category"><h2>Category</h2></label>
+                                <input type="text" class="form-control" id="category" required="required" placeholder="Enter any category">
+                            
+                        </form>
+                        <br>
+                        <div class="button-container">
+                            <button class="btn btn-primary">Choose</button>
+                            <button class="btn btn-success">Randomize</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="assets/plugins/bootstrap.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

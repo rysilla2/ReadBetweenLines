@@ -1,0 +1,100 @@
+﻿/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #aee2e9;
+}
+
+header {
+    background-color: #87CEEB;
+    color: #000000;
+    text-align: left;
+    padding: 1rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Style for the images */
+.image-container {
+    text-align: center;
+    margin: 2rem 0; /* Add space between images */
+}
+
+.square-image {
+    width: 200px; /* Set a fixed width for square images */
+    height: 200px; /* Set a fixed height for square images */
+    margin: 0 3rem; /* Add space between images horizontally */
+}
+
+.custom-form {
+    text-align: center;
+}
+
+button {
+    padding: 1rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100%; /* Make the parent container fill its available height */
+}
+
+.difficulty-button {
+    cursor: pointer;
+    border-radius: 50px;
+    background: #66d0e8;
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.difficulty-rectangle {
+    width: 150px;
+    height: 80px;
+    background-color: #0f68bbe9;
+    color: #84e5f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.difficulty-rectangle:hover {
+    background-color: #0056b3;
+}
+
+/* Add a style for the 'active' button */
+.difficulty-rectangle.active {
+    background-color: #0056b3;
+}
+
+/* Center the difficulty descriptions and add some margin */
+.difficulty-description {
+    margin-top: 1rem;
+    text-align: center;
+    margin: 0 auto;
+}
+  
+
+.difficulty-rectangle i {
+    font-size: 32px;
+  }
