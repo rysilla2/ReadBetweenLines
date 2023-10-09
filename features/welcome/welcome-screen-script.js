@@ -23,8 +23,6 @@ const getDifficulty = (age) => {
 flatpickr("#birthday", {});
 
 const onStart = () => {
-  document.location.href =
-    document.location.origin + "/features/welcome/age-restriction.html"; //STILL NOT WORKING
   console.log("onStart function is called");
   try {
     let birthday = document.getElementById("birthday").value;
@@ -36,6 +34,8 @@ const onStart = () => {
       throw "Information is empty";
     }
     if (age < 4) {
+      document.getElementById("age-restriction-container").hidden = false;
+      document.getElementById("main-container").hidden = true;
       console.log("Redirecting to age restriction page.");
       return;
     }
