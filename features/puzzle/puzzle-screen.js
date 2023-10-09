@@ -217,7 +217,7 @@ window.addEventListener("load", function () {
     }
 
     incrementTime();//start the timer 
-    this.setInterval(incrementTime, 1);
+    this.setInterval(incrementTime, 1000);
 
     //need final round to end to stop the watch 
     // for recording the duration
