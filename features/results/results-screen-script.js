@@ -2,15 +2,16 @@ const getResultsData = () => {
   const userInformation = sessionStorage.getItem("userInformation");
   const gameDetails = sessionStorage.getItem("gameDetails");
   const roundDetails = sessionStorage.getItem("roundDetails");
-  return {
+  const details = {
     ...JSON.parse(userInformation),
     ...JSON.parse(gameDetails),
     ...JSON.parse(roundDetails),
   };
+return details;
 };
 
 const populateDetails = () => {
-  const data = JSON.parse(getResultsData());
+  const data = getResultsData();
   console.log(data);
   document.getElementById("category").innerHTML = data.category;
   document.getElementById("word").innerHTML = data.word;

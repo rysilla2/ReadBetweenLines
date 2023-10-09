@@ -30,7 +30,7 @@ let timer = null;
 // var numberOfHints = 0; //determines how manu hints are created //fromStorage
 // var hints = [];
 // var hintNo = 1; //used to flip between which hints to display.
-// let timer = null;
+// let timer = null;wd
 // let wordArr = []
 // let stopwatch = null;
 
@@ -229,7 +229,6 @@ function storeDetails(category, word, winner, timestop) {
         category: category,
         word: word,
         winner: winner,
-        words: wordArr,
         //  duration:duration,
         timestop: stopTimer(), // to record the duration or what time did it stop
     };
@@ -304,7 +303,7 @@ function apiCommunicator(category) {
     console.log(msg)
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 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");
+    myHeaders.append("Authorization", "Bearer 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");
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
@@ -348,7 +347,6 @@ function apiCommunicator(category) {
             wordToBeSaved = wordToBeSaved.toLowerCase();
             wordToBeSaved = wordToBeSaved.replace(":", " ")
             wordToBeSaved = wordToBeSaved.trim()
-            wordArr.push(wordToBeSaved);
             console.log("Sending: ", wordToBeSaved)
             saveWord(wordToBeSaved)
 
