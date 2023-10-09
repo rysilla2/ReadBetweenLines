@@ -13,7 +13,7 @@ const populateDetails = () => {
   const data = JSON.parse(getResultsData());
   console.log(data);
   document.getElementById("category").innerHTML = data.category;
-  document.getElementById("word").innerHTML = data.word;
+  document.getElementById("word").innerHTML = data.words;
   document.getElementById("round").innerHTML = data.round;
   document.getElementById("duration").innerHTML = data.duration;
   document.getElementById("winner").innerHTML = data.winner;

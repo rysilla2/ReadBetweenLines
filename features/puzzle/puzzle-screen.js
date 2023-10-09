@@ -30,6 +30,7 @@ var hints = [];
 var hintNo = 1; //used to flip between which hints to display.
 let timer = null;
 let wordArr = []
+let stopwatch = null;
 
 //this function initializes the round, by getting a new word and generating hints
 function initWordRound(category, difficulty) {
@@ -237,7 +238,7 @@ window.addEventListener("load", function () {
     }
 
     incrementTime();//start the timer 
-    this.setInterval(incrementTime, 1000);
+    stopwatch = setInterval(incrementTime, 1000);
 
     //need final round to end to stop the watch 
     // for recording the duration
@@ -250,7 +251,7 @@ window.addEventListener("load", function () {
 })
 
 function stopTimer(){ //stopTimer
-    clearInterval(interval);
+    clearInterval(stopwatch);
     const elapsedTime = time;
     return elapsedTime;
 }
