@@ -106,6 +106,7 @@ button:hover {
   transition: background-color 0.3s ease;
   filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
     drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  padding: 0.5rem;
 }
 
 .difficulty-rectangle:hover {
@@ -129,15 +130,15 @@ button:hover {
   flex: 1;
   text-align: start;
   font-size: 1em;
-}
-
-.difficulty-rectangle i {
-  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .icon-container {
   height: 2rem;
-  margin-right: 1em;
+  flex: 1;
+  filter: invert(1);
 }
 
 .difficulty-detail-container {
@@ -145,4 +146,15 @@ button:hover {
   flex-direction: row;
   align-content: center;
   align-items: center;
+  > p {
+    flex: 1;
+  }
+}
+
+.difficulty-icon {
+  height: 50%;
+  flex: 1;
+  width: auto;
+  color: white;
+  filter: invert(1);
 }
