@@ -3,10 +3,10 @@
 var userScore = 0;
 var computerScore = 0;
 var difficulty = "Lupos"; //temp
-var category = "food"; //temp
+var category = "Country"; //temp
 var originalRounds = 2; //fromStrorage
 var rounds = 1;
-var originalTurns = 3; //turns based on difficulty //fromStorage
+var originalTurns = 5; //turns based on difficulty //fromStorage
 var turns = originalTurns;
 var numberOfHints = 0; //determines how manu hints are created //fromStorage
 var hints = [];
@@ -15,17 +15,16 @@ let timer = null;
 
 //this function initializes the round, by getting a new word and generating hints
 function initWordRound(category, difficulty) {
-  console.log("Player chooses category: " + category);
-  console.log("Player chooses difficulty: " + difficulty);
-  document.getElementById("roundboard").innerHTML =
-    "Round: " + rounds + "/" + originalRounds;
+
+  console.log("Player chooses category: " + category)
+  console.log("Player chooses difficulty: " + difficulty)
+  document.getElementById("roundboard").innerHTML = "Round: " + rounds + "/" + originalRounds;
   document.getElementById("categoryLabel").innerHTML = "Category: ";
   document.getElementById("turnboard").innerHTML = "Turns Left: " + turns;
-  //   apiCommunicator(category);
+  apiCommunicator(category)
 
   updateData();
 }
-
 //this updates the scoreboard based on the winner of the last round
 
 function updateData() {
@@ -88,7 +87,7 @@ function countdown(restart, stop) {
       document.getElementById("countdown").innerHTML = seconds + "s";
 
       if (seconds <= 0) {
-        clearInterval(countdownTimer);
+        clearInterval(timer);
         document.getElementById("countdown").innerHTML = "Expired";
       }
     }, 1000);
@@ -116,68 +115,67 @@ function shuffleHint() {
 
 //used to handle game cycle/round
 function gameCycle() {
+
   if (turns <= 0) {
-    return false;
+      return false;
   }
 
   if (userScore >= originalRounds) {
-    changeHintPanel(randomMessage());
-    return true;
-  } else if (computerScore >= originalRounds) {
-    changeHintPanel("You've loss the game!");
-    console.log("You've loss the game");
+      changeHintPanel(randomMessage())
+      return true;
+  } else if (computerScore >= originalRounds)  {
+      changeHintPanel("You've loss the game!")
+      console.log("You've loss the game")
   } else {
-    // apiCommunicator(category);
-    rounds += 1;
-    updateData();
-    return false;
+      apiCommunicator(category)
+      rounds += 1; updateData()
+      return false;
   }
 }
 
+
+//used to check if the word checked matches the correct word
+
 //used to check if the word checked matches the correct word
 function wordChecker() {
-  console.log("stopping countdown");
-  countdown(true);
-  turns -= 1;
-  updateData();
+  turns -= 1; updateData();
 
-  console.log("my score: " + userScore);
-  console.log("computer score: " + computerScore);
-  var correctWord = sessionStorage.getItem("word");
-  var guessedWord = document.getElementById("wordInput").value;
+  countdown(false, false)
+
+  console.log("my score: " + userScore)
+  console.log("computer score: " + computerScore)
+  var correctWord = sessionStorage.getItem('word')
+  var guessedWord = document.getElementById('wordInput').value
   guessedWord = guessedWord.toLowerCase();
   guessedWord = guessedWord.trim();
 
-  if (correctWord == guessedWord) {
-    // word is guessed
-    document.getElementById("hintPanel").innerHTML =
-      "You've guessed the word!";
-    hideControlPanel(false);
+  if (correctWord == guessedWord) { // word is guessed
+    document.getElementById("hintPanel").innerHTML = randomMessage();
+    hideControlPanel(false)
 
-    addScore(true);
+    addScore(true)
 
     if (gameCycle()) {
-      countdown(false, true);
+      countdown(true, false)
       return;
     }
-  } else {
-    // word not guessed
+
+  } else { // word not guessed
 
     if (turns <= 0) {
-      changeHintPanel("You ran out of turns!");
-      hideControlPanel(true);
-      addScore(false);
+      changeHintPanel("You ran out of turns!")
+      hideControlPanel(true)
+      addScore(false)
 
       if (!gameCycle()) {
-        countdown(false, true);
         return;
       }
-      turns = originalTurns;
-      updateData();
+      turns = originalTurns; updateData();
     }
 
-    shuffleHint();
+    shuffleHint()
   }
+
 }
 
 //change hint panel message
@@ -230,7 +228,7 @@ function apiCommunicator(category) {
   var myHeaders = new Headers();
   myHeaders.append(
     "Authorization",
-    "Bearer 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"
+    "Bearer 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"
   );
   myHeaders.append("Content-Type", "application/json");
 
@@ -277,6 +275,8 @@ function apiCommunicator(category) {
       wordToBeSaved = wordToBeSaved.trim();
       console.log("Sending: ", wordToBeSaved);
       saveWord(wordToBeSaved);
+
+      countdown(false, false)
     })
     .catch((error) => {
       console.log("error", error);
@@ -284,10 +284,100 @@ function apiCommunicator(category) {
     });
 }
 
+function apiCommunicator(category) {
+  console.log("Summary")
+  var msg =
+    `
+          I want you to pick one word, not too simple, under the category of ${category}. 
+          Give me hints of ${turns} separate simple sentences in bullet points for the word. 
+          Do not use '-' in sentences or in words. 
+          For example, instead of super-man, use superman.
+          For example, instead of second-largest, use second largest.
+
+          Strictly do not use the word or variations for the word when making the hints.
+
+          Follow this as a sample response =
+          Philippines 
+          - It is an archipelagic country.
+          - The country is in southeast asia.
+          - The country is known for its beaches and kind people.
+          - The population is around 100 million.
+          - Some foods include sinigang and adobo.
+          ;
+
+          Make sure the tips are ${turns} bullet points.
+
+          When stating the name of the word, do not include anything else such as periods, colons, or semicolons.
+
+      `
+
+  console.log(msg)
+
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Bearer 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");
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    "messages": [
+      {
+        "role": "user",
+        "content": msg
+      }
+    ],
+    "model": "gpt-3.5-turbo"
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  fetch("https://api.openai.com/v1/chat/completions", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      const res = JSON.parse(result)
+      console.log(res.choices[0].message.content)
+
+      var tempArr = res.choices[0].message.content.split("-")
+
+      hints = tempArr;
+      var wordToBeSaved = hints[0]
+      shuffleHint();
+
+      //to make sure the word does not appear
+      var tempHints = [];
+      for (var i = 1; i < hints.length; i++) {
+        tempHints.push(hints[i].replace(hints[0], "-blank-"))
+        tempHints.push(hints[i].replace((hints[0] + 's'), "-blank-")) // removing word for example penguin and penguins (with added 's')
+      }
+
+      hints = tempHints;
+
+      wordToBeSaved = wordToBeSaved.toLowerCase();
+      wordToBeSaved = wordToBeSaved.replace(":", " ")
+      wordToBeSaved = wordToBeSaved.trim()
+      console.log("Sending: ", wordToBeSaved)
+      saveWord(wordToBeSaved)
+
+      if (turns == originalTurns) {
+        countdown(false, false)
+      }
+
+    }
+    )
+    .catch(error => {
+      console.log('error', error)
+      changeHintPanel("Too many requests! Please wait for awhile.")
+    }
+    );
+}
+
 initWordRound(category);
 
 function randomMessage() {
-        
+
   let messages = ["Word Phenom!", "Linguistic Sorceror!", "Lexical Alchemist!", "Word Craft Guru!"]
   let randMessage = Math.floor(Math.random() * 4);
   console.log(Math.floor(Math.random() * 4))
