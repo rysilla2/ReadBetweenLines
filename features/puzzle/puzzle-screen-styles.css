@@ -1,3 +1,4 @@
+
 .submit-button {
     background-color: lime;
     /*CSS design for the colours of buttons and input box */
@@ -74,6 +75,42 @@
     background-color: wheat;
 }
 
+#categoryLabel {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
+#roundBoard {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
+#turnBoard {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
+#scoreBoard {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
+#computerScoreboard {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
+#countdownBox {
+  margin: rem;
+  justify-self: center;
+  margin-left: 15px;
+}
+
 input[type="text"],
 select {
   width: 100%;
@@ -115,8 +152,9 @@ select {
 }
 
 .roundBox {
-  background-color: #9eddff;
+  background-color: #618264;
   border-radius: 5px;
+  color: white;
   width: 80%;
   min-height: 5rem;
   font-size: 2rem;
