@@ -16,6 +16,20 @@ var hints = [];
 var hintNo = 1; //used to flip between which hints to display.
 let timer = null;
 
+// var roundDetails = sessionStorage.getItem("roundDetails")
+// var userScore = 0;
+// var computerScore = 0;
+// var difficulty = "Lupos"; //temp
+// var category = "Food"; //temp
+// var originalRounds = 5; //fromStrorage
+// var rounds = 1;
+// var originalTurns = 7; //turns based on difficulty //fromStorage
+// var turns = originalTurns;
+// var numberOfHints = 0; //determines how manu hints are created //fromStorage
+// var hints = [];
+// var hintNo = 1; //used to flip between which hints to display.
+// let timer = null;
+
 //this function initializes the round, by getting a new word and generating hints
 function initWordRound(category, difficulty) {
 
@@ -118,21 +132,19 @@ function shuffleHint() {
 
 //used to handle game cycle/round
 function gameCycle() {
-
-    // if (turns <= 0) {
-    //     return false;
-    // }
-
-    
-
     if (userScore >= originalRounds) {
         changeHintPanel(randomMessage())
         storeDetails(category, sessionStorage.getItem('word'), "player", '-')
+        document.location.href = document.location.origin + "/features/results/results-screen.html"
         return true;
     } else if (computerScore >= originalRounds || turns <= 0) {
         changeHintPanel("You've loss the game!")
         storeDetails(category, sessionStorage.getItem('word'), "computer", '-')
         console.log("You've loss the game")
+    } else if (userScore > computerScore) {
+        changeHintPanel(randomMessage())
+        storeDetails(category, sessionStorage.getItem('word'), "player", '-')
+        return true;
     } else {
         apiCommunicator(category)
         rounds += 1; updateData()
@@ -246,95 +258,9 @@ function saveWord(word) {
     sessionStorage.setItem("word", word);
 }
 
-function apiCommunicator(category) {
-    console.log("Summary");
-    var msg = `
-            I want you to pick one word, not too simple, under the category of ${category}.
-            Give me hints of ${turns} separate simple sentences in bullet points for the word.
-            Do not use '-' in sentences or in words.
-            For example, instead of super-man, use superman.
-            For example, instead of second-largest, use second largest.
-
-            Strictly do not use the word or variations for the word when making the hints.
-
-            Follow this as a sample response =
-            Philippines
-            - It is an archipelagic country.
-            - The country is in southeast asia.
-            - The country is known for its beaches and kind people.
-            - The population is around 100 million.
-            - Some foods include sinigang and adobo.
-            ;
-
-            Make sure the tips are ${turns} bullet points.
-
-            When stating the name of the word, do not include anything else such as periods, colons, or semicolons.
-
-        `;
-
-    console.log(msg);
-
-    var myHeaders = new Headers();
-    myHeaders.append(
-        "Authorization",
-        "Bearer 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"
-    );
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-        messages: [
-            {
-                role: "user",
-                content: msg,
-            },
-        ],
-        model: "gpt-3.5-turbo",
-    });
-
-    var requestOptions = {
-        method: "POST",
-        headers: myHeaders,
-        body: raw,
-        redirect: "follow",
-    };
-
-    fetch("https://api.openai.com/v1/chat/completions", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-            const res = JSON.parse(result);
-            console.log(res.choices[0].message.content);
-
-            var tempArr = res.choices[0].message.content.split("-");
-
-            hints = tempArr;
-            var wordToBeSaved = hints[0];
-            shuffleHint();
-
-            //to make sure the word does not appear
-            var tempHints = [];
-            for (var i = 1; i < hints.length; i++) {
-                tempHints.push(hints[i].replace(hints[0], "-blank-"));
-                tempHints.push(hints[i].replace(hints[0] + "s", "-blank-")); // removing word for example penguin and penguins (with added 's')
-            }
-
-            hints = tempHints;
-
-            wordToBeSaved = wordToBeSaved.toLowerCase();
-            wordToBeSaved = wordToBeSaved.replace(":", " ");
-            wordToBeSaved = wordToBeSaved.trim();
-            console.log("Sending: ", wordToBeSaved);
-            saveWord(wordToBeSaved);
-
-            countdown(false, false)
-        })
-        .catch((error) => {
-            console.log("error", error);
-            changeHintPanel("Too many requests! Please wait for awhile.");
-        });
-}
 
 function apiCommunicator(category) {
-    console.log("Summary")
+    console.log("Summaryy")
     var msg =
         `
           I want you to pick one word, not too simple, under the category of ${category}. 
@@ -363,7 +289,7 @@ function apiCommunicator(category) {
     console.log(msg)
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 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");
+    myHeaders.append("Authorization", "Bearer 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");
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
@@ -418,7 +344,7 @@ function apiCommunicator(category) {
         )
         .catch(error => {
             console.log('error', error)
-            changeHintPanel("Too many requests! Please wait for awhile.")
+            changeHintPanel("There is a problem with the API. Not our code.")
         }
         );
 }
