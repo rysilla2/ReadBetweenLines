@@ -1,14 +1,15 @@
 //moved the JS to this new file 
 
-var roundDetails = sessionStorage.getItem("roundDetails")
-
+var storageItem = sessionStorage.getItem('roundDetails');
+let roundDetails = JSON.parse(storageItem);
+console.log(roundDetails.difficulty);
 var userScore = 0;
 var computerScore = 0;
-var difficulty = JSON.parse(roundDetails).difficulty; //temp
-var category = JSON.parse(roundDetails).category; //temp
-var originalRounds = JSON.parse(roundDetails).rounds; //fromStrorage
+var difficulty = roundDetails.difficulty; //temp
+var category = roundDetails.category; //temp
+var originalRounds = roundDetails.rounds; //fromStrorage
 var rounds = 1;
-var originalTurns = JSON.parse(roundDetails).turns; //turns based on difficulty //fromStorage
+var originalTurns = roundDetails.turns; //turns based on difficulty //fromStorage
 var turns = originalTurns;
 var numberOfHints = 0; //determines how manu hints are created //fromStorage
 var hints = [];
@@ -212,15 +213,11 @@ function storeDetails(category, word, winner, timestop) {
 
 // this is the stopwatch to track the duration
 window.addEventListener("load", function () {
-    const stopwatch = this.document.getElementById("stopwatch");
 
     let time = 0; //for setting the initial time
 
     function incrementTime() {
         time++;
-
-        stopwatch.textContent = ("0" + Math.trunc(time / 60)).slice(-2) + ":" +
-            ("0" + (time % 60)).slice(-2);
     }
 
     incrementTime();//start the timer 
@@ -420,7 +417,7 @@ function apiCommunicator(category) {
         );
 }
 
-initWordRound(category);
+initWordRound(category, difficulty);
 
 function randomMessage() {
 

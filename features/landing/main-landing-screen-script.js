@@ -93,9 +93,11 @@ const goToPuzzlePage = () => {
 
 const startGame = () => {
   const category = document.getElementById('category-input').value;
-  sessionStorage.setItem('roundDetails', {
+  sessionStorage.setItem('roundDetails', JSON.stringify({
     ... roundDetails,
     category: category,
-  });
+  }));
+
+  console.log('Item: ', sessionStorage.getItem('roundDetails'));
   goToPuzzlePage();
 }
