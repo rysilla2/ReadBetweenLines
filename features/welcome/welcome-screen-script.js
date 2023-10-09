@@ -42,6 +42,13 @@ const onStart = () => {
       document.getElementById("main-container").hidden = true;
       document.getElementById("valid-age-container").hidden = false;
       console.log("User Meets Age Requirement");
+
+      setTimeout(() => {
+        document.getElementById("word-from-the-makers").style.display = "none";
+        document
+          .getElementById("safe-and-private-gaming")
+          .removeAttribute("hidden");
+      }, 5000);
     }
     sessionStorage.setItem(
       "userInformation",
