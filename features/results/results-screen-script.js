@@ -1,17 +1,6 @@
-// const setRestultsData = () => {
-//     sessionStorage.setItem('resultsData', JSON.stringify({
-//         category: 'Animal',
-//         word: 'Kangaroo',
-//         round: 2,
-//         duration: '2:00',
-//         winner: 'Player 1',
-//         matchType: 'Rematch'
-//     }))
-// };
-
 const getResultsData = () => {
-  const resultsData = sessionStorage.getItem("resultsData");
-  return resultsData;
+  const userInformation = sessionStorage.getItem("userInformation");
+  return userInformation;
 };
 
 const populateDetails = () => {
@@ -45,13 +34,12 @@ const onNewGame = async () => {
     word: `Word: ${word}`,
     winner: `Winner: ${winner}`,
     roundDuration: `Round Duration: ${roundDuration}`,
-    
-  }
+  };
   let headers = new Headers();
   headers.append("Content-Type", "application/x-www-form-urlencoded");
 
   let body = new URLSearchParams();
-  body.append("token", "xoxb-5873417732163-5873477801299-XVz4AckK84mhS9nczWlEZ9mu");
+  body.append("token", "SLACK_API_TOKEN");
   body.append("channel", "C05RGRZ02RL");
   body.append("text", "Hello");
 
