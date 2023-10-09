@@ -191,6 +191,21 @@ function hideControlPanel(isHidden) {
   }
 }
 
+function storeDetails(category,word, winner, duration){
+
+    const details = {
+        category:category, 
+        word:word, 
+        winner:winner, 
+        duration:duration,
+    };
+    // this is for storing it in the session storage
+    sessionStorage.setItem('storeDetails',JSON.stringify(details));
+    
+}
+
+
+
 //saves the word into local storage.
 function saveWord(word) {
   console.log("Saving: ", word);
