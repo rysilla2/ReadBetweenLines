@@ -121,7 +121,7 @@ function gameCycle() {
   }
 
   if (userScore >= originalRounds) {
-    changeHintPanel("You've won the game!");
+    changeHintPanel(randomMessage());
     return true;
   } else if (computerScore >= originalRounds) {
     changeHintPanel("You've loss the game!");
@@ -200,7 +200,6 @@ function saveWord(word) {
 }
 
 function apiCommunicator(category) {
-  return;
   console.log("Summary");
   var msg = `
             I want you to pick one word, not too simple, under the category of ${category}.
@@ -287,3 +286,11 @@ function apiCommunicator(category) {
 
 initWordRound(category);
 
+function randomMessage() {
+        
+  let messages = ["Word Phenom!", "Linguistic Sorceror!", "Lexical Alchemist!", "Word Craft Guru!"]
+  let randMessage = Math.floor(Math.random() * 4);
+  console.log(Math.floor(Math.random() * 4))
+  // console.log(messages[randMessage])
+  return messages[randMessage];
+}
