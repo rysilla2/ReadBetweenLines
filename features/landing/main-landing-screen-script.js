@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryInput = document.getElementById("categoryInput");
   const randomizeButton = document.querySelector(".btn-randomize");
   const categoryInputField = document.getElementById("category");
+  let roundDetails = null;
 
   // Function to handle button click
   function handleButtonClick(event) {
@@ -76,44 +77,41 @@ const getDifficulty = () => {
 };
 
 document.getElementById("ludus").addEventListener("click", () => {
-  console.log('clicked');
-  sessionStorage.setItem(
-    "roundDetails",
-    JSON.stringify({
-      difficulty: "ludus",
-      time: 40,
-      turns: 10,
-      rounds: 1,
-    })
-  );
-  goToPuzzlePage();
+  roundDetails = {
+    difficulty: "ludus",
+    time: 40,
+    turns: 10,
+    rounds: 1,
+  };
+  // goToPuzzlePage();
 });
 document.getElementById("rhetor").addEventListener("click", () => {
-  sessionStorage.setItem(
-    "roundDetails",
-    JSON.stringify({
-      difficulty: "rhetor",
-      time: 20,
-      turns: 7,
-      rounds: 3,
-    })
-  );
-  goToPuzzlePage();
-});
-document.getElementById("philosopher").addEventListener("click", () => {
-  sessionStorage.setItem(
-    "roundDetails",
-    JSON.stringify({
-      difficulty: "philosopher",
-      time: 10,
-      turns: 5,
-      rounds: 5,
-    })
-  );
-  goToPuzzlePage();
+roundDetails = {
+  difficulty: "rhetor",
+  time: 20,
+  turns: 7,
+  rounds: 3,
+};
 });
 
+document.getElementById("philosopher").addEventListener("click", () => {
+ roundDetails = {
+  difficulty: "philosopher",
+  time: 10,
+  turns: 5,
+  rounds: 5,
+};
+});
 const goToPuzzlePage = () => {
   document.location.href =
     document.location.origin + "/features/puzzle/puzzle-screen.html";
 };
+
+const startGame = () => {
+  const category = document.getElementById('category-input').value;
+  sessionStorage.setItem('roundDetails', {
+    ... roundDetails,
+    category: category,
+  });
+  goToPuzzlePage();
+}
