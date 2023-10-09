@@ -88,37 +88,31 @@ body {
 }
 
 #categoryLabel {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
 
 #roundBoard {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
 
 #turnBoard {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
 
 #scoreBoard {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
 
 #computerScoreboard {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
 
 #countdownBox {
-  margin: rem;
   justify-self: center;
   margin-left: 15px;
 }
@@ -134,21 +128,24 @@ select {
   box-sizing: border-box;
 }
 
+.main-body {
+  height: 100%;
+}
+
 .row {
   display: flex;
+  height: 100%;
 }
 
 /* Create two equal columns that sits next to each other */
 .column {
   flex: 75%;
   padding: 10px;
-  height: 100vh;
   /* Should be removed. Only for demonstration */
 }
 
 #leftPanel {
   flex: 25%;
-  height: 100vh;
 }
 
 .header {
@@ -163,12 +160,20 @@ select {
 }
 
 .roundBox {
+  margin: 0.5rem 0 0.5rem 0;
+  display: flex;
   background-color: #618264;
   border-radius: 5px;
   color: white;
   width: 80%;
-  min-height: 5rem;
+  min-height: 2rem;
   font-size: 2rem;
+  align-content: center;
+  align-items: center;
+  > p {
+    font-size: 1.5rem;
+
+  }
 }
 
 #controlPanel {
