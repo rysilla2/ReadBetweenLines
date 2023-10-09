@@ -122,9 +122,11 @@ function gameCycle() {
 
     if (userScore >= originalRounds) {
         changeHintPanel(randomMessage())
+        storeDetails(category, sessionStorage.getItem('word'), "player", '-')
         return true;
     } else if (computerScore >= originalRounds) {
         changeHintPanel("You've loss the game!")
+        storeDetails(category, sessionStorage.getItem('word'), "player", '-')
         console.log("You've loss the game")
     } else {
         apiCommunicator(category)
@@ -133,8 +135,6 @@ function gameCycle() {
     }
 }
 
-
-//used to check if the word checked matches the correct word
 
 //used to check if the word checked matches the correct word
 function wordChecker() {
@@ -270,7 +270,7 @@ function apiCommunicator(category) {
     var myHeaders = new Headers();
     myHeaders.append(
         "Authorization",
-        "Bearer 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"
+        "Bearer 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"
     );
     myHeaders.append("Content-Type", "application/json");
 
