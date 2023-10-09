@@ -38,6 +38,10 @@ const onStart = () => {
       document.getElementById("main-container").hidden = true;
       console.log("Redirecting to age restriction page.");
       return;
+    } else {
+      document.getElementById("main-container").hidden = true;
+      document.getElementById("valid-age-container").hidden = false;
+      console.log("User Meets Age Requirement");
     }
     sessionStorage.setItem(
       "userInformation",

@@ -61,10 +61,26 @@ body {
 }
 
 /******************** FOR AGE RESTRICTION PAGE ***********************/
+.invalid-age{
+  color: aliceblue;
+  text-align: center;
+}
 .age-restriction-message {
   color: aliceblue;
   text-align: center;
 }
+
+/******************* WORD FROM MAKERS ******************************/
+.valid-age{
+  color: aliceblue;
+  text-align: center;
+}
+.word-from-the-makers{
+  color: aliceblue;
+  text-align: center;
+  padding: 20px;
+}
+
 /* Applies to green start button */
 button[value="start"] {
   background-color: green;

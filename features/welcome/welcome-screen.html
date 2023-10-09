@@ -3,64 +3,93 @@
 <!-- GROUP HIGH FIVE -->
 
 <html>
+  <head>
+    <title>Garden of Words | WELCOME SCREEN</title>
 
-<head>
-  <title>Garden of Words | WELCOME SCREEN</title>
+    <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
 
-  <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="../../main-css/main-styles.css" />
+    <link rel="stylesheet" href="welcome-screen-style.css" />
 
-  <link rel="stylesheet" href="../../main-css/main-styles.css" />
-  <link rel="stylesheet" href="welcome-screen-style.css" />
+    <!-- flatpickr | BIRTHDATE Selection Implementation -->
+    <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
 
-  <!-- flatpickr | BIRTHDATE Selection Implementation -->
-  <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-</head>
+  <body>
+    <div class="transparent-screen">
+      <div class="container" id="main-container">
+        <div class="main-title">
+          <h1>Garden of Words</h1>
+        </div>
 
-<body>
-  <div class="transparent-screen">
-    <div class="container" id="main-container">
-      <div class="main-title">
-        <h1>Garden of Words</h1>
-      </div>
+        <div>
+          <div class="user-information-form">
+            <label for="username">Username</label>
+            <input
+              required
+              id="username"
+              type="text"
+              value="renato"
+              placeholder="Username"
+            />
 
-      <div>
-        <div class="user-information-form">
-          <label for="username">Username</label>
-          <input required id="username" type="text" value="renato" placeholder="Username" />
+            <label for="birthday">Birthday</label>
+            <input
+              required
+              id="birthday"
+              type="date"
+              onChange="calculateAge()"
+              placeholder="Birthday"
+            />
 
-          <label for="birthday">Birthday</label>
-          <input required id="birthday" type="date" onChange="calculateAge()" value="2022-01-19"
-            placeholder="Birthday" />
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
 
-          <label for="gender">Gender</label>
-          <select id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-
-          <button onclick="onStart()" value="start">START</button>
+            <button onclick="onStart()" value="start">START</button>
+          </div>
         </div>
       </div>
+
+      <div class="container" id="age-restriction-container" hidden="true">
+        <div class="invalid-age">
+          <h1>Age Restriction</h1>
+        </div>
+
+        <div class="age-restriction-message">
+          <h2>
+            We're sorry, but it appears that you do not meet the age
+            requirements to access this game (8+).
+          </h2>
+        </div>
+      </div>
+      <div class="container" id="valid-age-container" hidden="true">
+        <div class="valid-age">
+          <h1>A Word from the Makers</h1>
+        </div>
+
+        <div class="word-from-the-makers">
+          <h2>
+            It's important to remember that as you engage in gaming, your
+            parent's guidance and support are invaluable. They can help you make
+            responsible choices, set appropriate time limits, and ensure that
+            your gaming experience remains enjoyable and safe. We strongly
+            suggest that you involve them in your gaming decisions and
+            discussions; their guidance is meant to enhance your overall
+            experience
+          </h2>
+        </div>
+      </div>
+
+      <script src="./welcome-screen-script.js"></script>
     </div>
-    <div class="container" id="age-restriction-container" hidden="true">
-      <div class="main-title">
-        <h1>Age Restriction</h1>
-      </div>
-
-      <div class="age-restriction-message">
-        <h2>We're sorry, but it appears that you do not meet the age requirements to access this game (8+).</h2>
-      </div>
-      <div>
-      </div>
-
-
-    </div>
-
-    <script src="./welcome-screen-script.js"></script>
-  </div>
-</body>
-
+  </body>
 </html>
