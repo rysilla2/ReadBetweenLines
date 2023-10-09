@@ -1,18 +1,7 @@
 
-const setRestultsData = () => {
-    sessionStorage.setItem('resultsData', JSON.stringify({
-        category: 'Animal',
-        word: 'Kangaroo',
-        round: 2,
-        duration: '2:00',
-        winner: 'Player 1',
-        matchType: 'Rematch'
-    }))
-};
-
 const getResultsData = () => {
-    const resultsData = sessionStorage.getItem('resultsData');
-    return resultsData;
+    const userInformation = sessionStorage.getItem('userInformation');
+    console.log(JSON.parse(userInformation));
 };
 
 const populateDetails = () => {
@@ -26,10 +15,8 @@ const populateDetails = () => {
     document.getElementById('matchType').innerHTML = data.matchType;
 }
 
-setRestultsData();
-populateDetails();
-
+getResultsData();
 const onNewGame = () => {
-    // implement restart game method here
-    console.log("next game");
+    sessionStorage.clear();
+    document.location.href = document.location.origin + "/features/welcome/welcome-screen.html";
 }

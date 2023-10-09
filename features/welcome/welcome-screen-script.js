@@ -52,6 +52,8 @@ const onStart = () => {
         age: calculateAge(),
       })
     );
+    // document.location.href = document.location.origin + "/features/results/results-screen.html";
+    document.location.href = document.location.origin + "/features/landing/main-landing-screen.html";
   } catch (e) {
     console.log("Invalid Information | Error:", e);
     return;
