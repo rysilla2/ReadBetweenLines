@@ -198,23 +198,24 @@ function hideControlPanel(isHidden) {
 
 // this is for storing the match details
 function storeDetails(category, word, winner, timestop) {
-
+ // this a function call for stop the timer stopTimer()
     const details = {
         category: category,
         word: word,
         winner: winner,
         //  duration:duration,
-        timestop: timestop, // to record the duration or what time did it stop
+        timestop: stopTimer(), // to record the duration or what time did it stop
     };
     // this is for storing it in the session storage
     sessionStorage.setItem('gameDetails', JSON.stringify(details));
 
 }
 
+let time = 0; //for setting the initial time
 // this is the stopwatch to track the duration
 window.addEventListener("load", function () {
 
-    let time = 0; //for setting the initial time
+
 
     function incrementTime() {
         time++;
@@ -227,12 +228,17 @@ window.addEventListener("load", function () {
     // for recording the duration
 
     //testing this is for checking if the current round is the final round
-    if (currentRound === originalRounds) {
-        clearInterval(incrementTime);// to stop the timer
-    }
+    //if (currentRound === originalRounds) {
+    //    clearInterval(incrementTime);// to stop the timer
+    //}
 
 })
 
+function stopTimer(){ //stopTimer
+    clearInterval(interval);
+    const elapsedTime = time;
+    return elapsedTime;
+}
 
 //saves the word into local storage.
 function saveWord(word) {
