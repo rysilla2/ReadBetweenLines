@@ -206,7 +206,7 @@ function storeDetails(category, word, winner, timestop) {
         timestop: timestop, // to record the duration or what time did it stop
     };
     // this is for storing it in the session storage
-    sessionStorage.setItem('storeDetails', JSON.stringify(details));
+    sessionStorage.setItem('gameDetails', JSON.stringify(details));
 
 }
 
@@ -430,3 +430,5 @@ function randomMessage() {
     // console.log(messages[randMessage])
     return messages[randMessage];
 }
+
+

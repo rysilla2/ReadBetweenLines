@@ -42,22 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     populateRandomCategory();
   });
 
-  // Add a submit event listener to the form
-  categoryForm.addEventListener("submit", function (event) {
-    // Prevent the default form submission
-    event.preventDefault();
-
-    // Get the selected difficulty level
-    const selectedDifficulty = document.querySelector(
-      ".difficulty-rectangle.active"
-    );
-    if (selectedDifficulty) {
-      difficultyLevelInput.value = selectedDifficulty.id; // Set the difficulty level value
-    }
-
-    // Submit the form
-    categoryForm.submit();
-  });
 });
 
 const getDifficulty = () => {
