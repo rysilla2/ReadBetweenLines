@@ -61,7 +61,7 @@ body {
 }
 
 /******************** FOR AGE RESTRICTION PAGE ***********************/
-.invalid-age{
+.invalid-age {
   color: aliceblue;
   text-align: center;
 }
@@ -70,12 +70,15 @@ body {
   text-align: center;
 }
 
-/******************* WORD FROM MAKERS ******************************/
-.valid-age{
+/******************** WORD FROM MAKERS ***********************/
+
+.word-from-the-makers {
   color: aliceblue;
   text-align: center;
+  padding: 20px;
 }
-.word-from-the-makers{
+/******************** PRIVACY MATTERS  ***********************/
+.safe-and-private-gaming {
   color: aliceblue;
   text-align: center;
   padding: 20px;
