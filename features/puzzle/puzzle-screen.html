@@ -1,19 +1,11 @@
 <html>
 <head>
     <title>Ready to Play</title>
-
     <script src="../../ApiHandler.js"></script>
+    <link rel="stylesheet" href="../../main-css/main-styles.css" />
 </head>
 <style>
-    div {
-        font-family: Verdana;
-    }
-
-    button {
-        border-radius: 10px;
-    }
-
-    .button1 {
+    .submit-button {
         background-color: lime;
         /*CSS design for the colours of buttons and input box */
         border: none;
@@ -27,7 +19,7 @@
         cursor: pointer;
     }
 
-    .button2 {
+    .pass-button {
         background-color: yellowgreen;
         border: none;
         color: black;
@@ -40,7 +32,8 @@
         cursor: pointer;
     }
 
-    .button3 {
+
+    .reset-button {
         background-color: lightcoral;
         border: none;
         color: black;
@@ -53,7 +46,7 @@
         cursor: pointer;
     }
 
-    .button4 {
+    .giveup-button {
         background-color: Grey;
         border: none;
         color: black;
@@ -72,19 +65,19 @@
         padding: 130px;
     }
 
-    .button1:hover {
+    .submit-button:hover {
         background-color: #4CAF50;
     }
 
-    .button2:hover {
+    .pass-button:hover {
         background-color: yellow;
     }
 
-    .button3:hover {
+    .reset-button:hover {
         background-color: lightsalmon;
     }
 
-    .button4:hover {
+    .giveup-button:hover {
         background-color: wheat;
     }
 
@@ -146,7 +139,7 @@
         width: 50%;
     }
 </style>
-
+<script src="puzzle-screen.js"></script>
 <body>
     <div id="container">
 
@@ -194,11 +187,10 @@
                     <input type="text" id="wordInput" name="word" placeholder="Guess the Answer"><br><br>
                 </div>
                 <div id="controlPanel" class="input" style="display: none;">
-                    <button class="button1" onclick="wordChecker()">Submit</button> <!--Buttons for game operations-->
-                    <button class="button2" onclick="passTurn()">Pass</button>
-                    <button class="button3" onclick="resetScore()">Reset</button>
-                    <button class="button4" onclick="endCount()">Give Up</button>
-
+                    <button class="submit-button" onclick="wordChecker()">Submit</button> <!--Buttons for game operations-->
+                    <button class="pass-button" onclick="passTurn()">Pass</button>
+                    <button class="reset-button" onclick="resetScore()">Reset</button>
+                    <button class="giveup-button" onclick="endCount()">Give Up</button>
                 </div>
             </div>
         </div>
@@ -474,5 +466,6 @@
     initWordRound(category);
 
 </script>
+
 
 </html>

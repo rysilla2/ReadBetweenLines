@@ -27,13 +27,4 @@ function dummyApi(word) {
     return false;
 }
 
-function dummyWelcomeInput() {
-
-    var category = "animal";
-    var difficulty = "Ludus"
-
-    console.log("Player chooses category: " + category)
-    console.log("Player chooses difficulty: " + difficulty)
-
-}
 

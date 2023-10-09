@@ -4,57 +4,57 @@
 
 <html>
   <head>
-    <title>High Five | WELCOME SCREEN</title>
+    <title>Garden of Words | WELCOME SCREEN</title>
 
     <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <style>
-      body {
-        color: aliceblue;
-      }
-    </style>
 
-     <!-- flatpickr | BIRTHDATE Selection Implementation -->
-     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-     
+    <link rel="stylesheet" href="welcome-screen-style.css" />
+
+    <!-- flatpickr | BIRTHDATE Selection Implementation -->
+    <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
 
-  <body style="background-color: black">
-    <h1>Welcome Player!</h1>
-    <div>
-      <h3>Input Information</h3>
+  <body>
+    <div class="transparent screen">
+      <div class="container">
+        <div class="welcome">
+          <h1>Welcome to Garden of Words</h1>
+          <h3>Input Information</h3>
+        </div>
+
+        <div>
+          <form>
+            <div class="user information form">
+              <label for="username">Username</label>
+              <input id="username" type="text" />
+
+              <label for="Birthday">Birthday</label>
+              <input id="Birthday" onChange="calculateAge()" />
+
+              <label for="Gender">Gender</label>
+              <select id="Gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+
+              <button type="submit" value="start">START</button>
+            </div>
+
+            <!-- UNCOMMENT IF FOR TESTING -->
+            <!-- Display age and difficulty
+            <div id="age"></div>
+            <div id="difficulty"></div> -->
+          </form>
+        </div>
+      </div>
+
+      <script src="./welcome-screen-script.js"></script>
     </div>
-
-    <div>
-      <form>
-        <div>
-          <label for="username">Username</label>
-          <input id="username" type="text" />
-        </div>
-
-        <div>
-          <label for="Birthday">Birthday</label>
-          <input id="Birthday" onChange="calculateAge()" />
-        </div>
-
-        <div>
-          <label for="Gender">Gender</label>
-          <select id="Gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div id="age"></div>
-        <button type="submit" value="submit">Submit</button>
-        <button type="reset" value="Reset">Clear</button>
-      </form>
-    </div>
-
-    <!-- implementation to get the Age of the user based from the selected birthdate from the calendar-->
-    <script src="./welcome-screen-script.js"></script>
   </body>
 </html>
