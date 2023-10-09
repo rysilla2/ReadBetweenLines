@@ -48,7 +48,7 @@ const onStart = () => {
         document
           .getElementById("safe-and-private-gaming")
           .removeAttribute("hidden");
-      }, 5000);
+      }, 8000);
     }
     sessionStorage.setItem(
       "userInformation",
@@ -66,4 +66,9 @@ const onStart = () => {
   console.log("start pressed and condition passed");
   const test = sessionStorage.getItem("userInformation");
   console.log(JSON.parse(test));
+
+
 };
+function gotonextpage() {
+  document.location.href = document.location.origin + "/features/landing/main-landing-screen.html";
+}

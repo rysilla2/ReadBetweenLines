@@ -94,3 +94,14 @@ button[value="start"] {
   border: none;
   align-self: end;
 }
+
+button[value="next"]{
+  background-color: green;
+  color: white;
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  border: none;
+  align-self: end;
+}
+
