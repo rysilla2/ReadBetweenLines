@@ -17,50 +17,58 @@
       height: 100vh;
     "
   >
-    <div class="results-section">
-      <div class="card">
-        <h1>Round Details</h1>
-        <div style="display: flex; flex-direction: column; gap: 1rem">
-          <div class="round-detail-entry">
-            <label>Category:</label>
-            <label id="category"></label>
-          </div>
-          <div class="round-detail-entry">
-            <label>Word:</label>
-            <label id="word"></label>
-          </div>
-          <div class="round-detail-entry">
-            <label>Round:</label>
-            <label id="round"></label>
-          </div>
-          <div class="round-detail-entry">
-            <label>Duration:</label>
-            <label id="duration"></label>
+  
+  <div class="transparent-screen">
+    <header>
+      <h1 id="header-title">Garden of Words</h1>
+    </header>
+  </div>
+        <div class="results-section">
+          <div class="card">
+            <h1>Round Details</h1>
+            <div style="display: flex; flex-direction: column; gap: 1rem">
+              <div class="round-detail-entry">
+                <label>Category:</label>
+                <label id="category"></label>
+              </div>
+              <div class="round-detail-entry">
+                <label>Word:</label>
+                <label id="word"></label>
+              </div>
+              <div class="round-detail-entry">
+                <label>Round:</label>
+                <label id="round"></label>
+              </div>
+              <div class="round-detail-entry">
+                <label>Duration:</label>
+                <label id="duration"></label>
+              </div>
+            </div>
+            <hr />
+            <!-- <h1>Match Type</h1>
+            <h2 id="matchType">Rematch</h2> -->
           </div>
         </div>
-        <hr />
-        <!-- <h1>Match Type</h1>
-        <h2 id="matchType">Rematch</h2> -->
+      
+      <div class="results-section">
+        <div style="display: flex; gap: 3rem; flex-direction: column; color: white;">
+          <label
+            style="
+              text-decoration: none;
+              text-align: center;
+              font-size: 5em;
+              font-weight: bold;
+              color: white;
+            "
+            >Winner!</label
+          >
+          <h1 style="text-align: center" id="winner"></h1>
+          <button onclick="onNewGame()">
+            <h1 style="text-decoration: none; text-align: center; font-size: 4em">
+              New Game
+            </h1>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="results-section">
-      <div style="display: flex; gap: 3rem; flex-direction: column">
-        <label
-          style="
-            text-decoration: none;
-            text-align: center;
-            font-size: 5em;
-            font-weight: bold;
-          "
-          >Winner!</label
-        >
-        <h1 style="text-align: center" id="winner"></h1>
-        <button onclick="onNewGame()">
-          <h1 style="text-decoration: none; text-align: center; font-size: 4em">
-            New Game
-          </h1>
-        </button>
-      </div>
-    </div>
   </body>
 </html>
