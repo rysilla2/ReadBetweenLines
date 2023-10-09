@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("../welcome/background.jpg");
+  background-image: url("../../assets/background2.png");
   background-size: auto;
   background-position: auto;
   color: white; /* Set text color to white */
