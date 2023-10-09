@@ -3,64 +3,51 @@
 <!-- GROUP HIGH FIVE -->
 
 <html>
-  <head>
-    <title>Garden of Words | WELCOME SCREEN</title>
 
-    <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    />
+<head>
+  <title>Garden of Words | WELCOME SCREEN</title>
 
-    <link rel="stylesheet" href="../../main-css/main-styles.css" />
-    <link rel="stylesheet" href="welcome-screen-style.css" />
+  <!-- THIS IS FOR THE CALENDAR FOR PICKING BIRTHDATE -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 
-    <!-- flatpickr | BIRTHDATE Selection Implementation -->
-    <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  </head>
+  <link rel="stylesheet" href="../../main-css/main-styles.css" />
+  <link rel="stylesheet" href="welcome-screen-style.css" />
 
-  <body>
-    <div class="transparent-screen">
-      <div class="container">
-        <div class="main-title">
-          <h1>Garden of Words</h1>
-        </div>
+  <!-- flatpickr | BIRTHDATE Selection Implementation -->
+  <!-- SHOULD BE HERE IN 'HEAD' DUE TO PERFORMANCE ISSUES -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
 
-        <div>
-          <div class="user-information-form">
-            <label for="username">Username</label>
-            <input
-              required
-              id="username"
-              type="text"
-              value="renato"
-              placeholder="Username"
-            />
-
-            <label for="birthday">Birthday</label>
-            <input
-              required
-              id="birthday"
-              type="date"
-              onChange="calculateAge()"
-              value="2022-01-19"
-              placeholder="Birthday"
-            />
-
-            <label for="gender">Gender</label>
-            <select id="gender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-
-            <button onclick="onStart()">START</button>
-          </div>
-        </div>
+<body>
+  <div class="transparent-screen">
+    <div class="container">
+      <div class="main-title">
+        <h1>Garden of Words</h1>
       </div>
 
-      <script src="./welcome-screen-script.js"></script>
+      <div>
+        <div class="user-information-form">
+          <label for="username">Username</label>
+          <input required id="username" type="text" value="renato" placeholder="Username" />
+
+          <label for="birthday">Birthday</label>
+          <input required id="birthday" type="date" onChange="calculateAge()" value="2022-01-19"
+            placeholder="Birthday" />
+
+          <label for="gender">Gender</label>
+          <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <button onclick="onStart()" value="start">START</button>
+        </div>
+      </div>
     </div>
-  </body>
+
+    <script src="./welcome-screen-script.js"></script>
+  </div>
+</body>
+
 </html>
