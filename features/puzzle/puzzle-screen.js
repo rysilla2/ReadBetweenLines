@@ -1,34 +1,35 @@
 //moved the JS to this new file 
 
-var storageItem = sessionStorage.getItem('roundDetails');
-let roundDetails = JSON.parse(storageItem);
-console.log(roundDetails.difficulty);
-var userScore = 0;
-var computerScore = 0;
-var difficulty = roundDetails.difficulty; //temp
-var category = roundDetails.category; //temp
-var originalRounds = roundDetails.rounds; //fromStrorage
-var rounds = 1;
-var originalTurns = roundDetails.turns; //turns based on difficulty //fromStorage
-var turns = originalTurns;
-var numberOfHints = 0; //determines how manu hints are created //fromStorage
-var hints = [];
-var hintNo = 1; //used to flip between which hints to display.
-let timer = null;
-
-// var roundDetails = sessionStorage.getItem("roundDetails")
+// var storageItem = sessionStorage.getItem('roundDetails');
+// let roundDetails = JSON.parse(storageItem);
+// console.log(roundDetails.difficulty);
 // var userScore = 0;
 // var computerScore = 0;
-// var difficulty = "Lupos"; //temp
-// var category = "Food"; //temp
-// var originalRounds = 5; //fromStrorage
+// var difficulty = roundDetails.difficulty; //temp
+// var category = roundDetails.category; //temp
+// var originalRounds = roundDetails.rounds; //fromStrorage
 // var rounds = 1;
-// var originalTurns = 7; //turns based on difficulty //fromStorage
+// var originalTurns = roundDetails.turns; //turns based on difficulty //fromStorage
 // var turns = originalTurns;
 // var numberOfHints = 0; //determines how manu hints are created //fromStorage
 // var hints = [];
 // var hintNo = 1; //used to flip between which hints to display.
 // let timer = null;
+
+var roundDetails = sessionStorage.getItem("roundDetails")
+var userScore = 0;
+var computerScore = 0;
+var difficulty = "Lupos"; //temp
+var category = "Food"; //temp
+var originalRounds = 5; //fromStrorage
+var rounds = 1;
+var originalTurns = 7; //turns based on difficulty //fromStorage
+var turns = originalTurns;
+var numberOfHints = 0; //determines how manu hints are created //fromStorage
+var hints = [];
+var hintNo = 1; //used to flip between which hints to display.
+let timer = null;
+let wordArr = []
 
 //this function initializes the round, by getting a new word and generating hints
 function initWordRound(category, difficulty) {
@@ -140,10 +141,11 @@ function gameCycle() {
     } else if (computerScore >= originalRounds || turns <= 0) {
         changeHintPanel("You've loss the game!")
         storeDetails(category, sessionStorage.getItem('word'), "computer", '-')
-        console.log("You've loss the game")
+        document.location.href = document.location.origin + "/features/results/results-screen.html"
     } else if (userScore > computerScore) {
         changeHintPanel(randomMessage())
         storeDetails(category, sessionStorage.getItem('word'), "player", '-')
+        document.location.href = document.location.origin + "/features/results/results-screen.html"
         return true;
     } else {
         apiCommunicator(category)
@@ -209,12 +211,13 @@ function hideControlPanel(isHidden) {
 }
 
 // this is for storing the match details
-function storeDetails(category, word, winner, timestop) {
+function storeDetails(category, word, winner, timestop, words) {
  // this a function call for stop the timer stopTimer()
     const details = {
         category: category,
         word: word,
         winner: winner,
+        words: wordArr,
         //  duration:duration,
         timestop: stopTimer(), // to record the duration or what time did it stop
     };
@@ -258,7 +261,7 @@ function saveWord(word) {
     sessionStorage.setItem("word", word);
 }
 
-
+//communicates with openai to generate word and hint
 function apiCommunicator(category) {
     console.log("Summaryy")
     var msg =
@@ -333,6 +336,7 @@ function apiCommunicator(category) {
             wordToBeSaved = wordToBeSaved.toLowerCase();
             wordToBeSaved = wordToBeSaved.replace(":", " ")
             wordToBeSaved = wordToBeSaved.trim()
+            wordArr.push(wordToBeSaved);
             console.log("Sending: ", wordToBeSaved)
             saveWord(wordToBeSaved)
 
