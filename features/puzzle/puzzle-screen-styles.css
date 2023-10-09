@@ -130,6 +130,7 @@ select {
 .column {
   flex: 75%;
   padding: 10px;
+  margin-top: 10px;
   height: 100vh;
   /* Should be removed. Only for demonstration */
 }
