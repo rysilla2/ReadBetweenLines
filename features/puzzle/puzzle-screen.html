@@ -1,7 +1,7 @@
 <html>
-
 <head>
     <title>Ready to Play</title>
+
     <script src="../../ApiHandler.js"></script>
 </head>
 <style>
@@ -164,7 +164,9 @@
                         <p>Countdown: <span id="countdown"></span></p><!--Experimental timer 60s can be adjusted-->
                     </div>
                     <div class="roundBox">
+
                         <p id="categoryLabel">Category: </p>
+
                     </div>
                     <div class="roundBox">
                         <p id="roundboard">Round: </p>
@@ -181,6 +183,7 @@
                 </div>
             </div>
             <div class="column" id="center" style="background-color: #BEFFF7;">
+
                 <div style="display: flex; justify-content: center ;">
                     <p id="hintPanel">Loading Word and Hint. Please wait</p>
                 </div>
@@ -195,6 +198,7 @@
                     <button class="button2" onclick="passTurn()">Pass</button>
                     <button class="button3" onclick="resetScore()">Reset</button>
                     <button class="button4" onclick="endCount()">Give Up</button>
+
                 </div>
             </div>
         </div>
@@ -230,6 +234,7 @@
 
 
     //this updates the scoreboard based on the winner of the last round
+
     function updateData() {
         document.getElementById("scoreboard").innerHTML = "Your Score: " + userScore;
         document.getElementById("computerScoreboard").innerHTML = "PC Score: " + computerScore;
@@ -261,11 +266,7 @@
         addScore(false)
         document.getElementById("hintPanel").innerHTML = "Surrendered!" ; updateData();
         apiCommunicator(category)
-
-
     }
-
-    const setResultsData = () => {
         sessionStorage.setItem('resultsData', JSON.stringify({
             category: 'Animal',
             word: 'input',
@@ -275,6 +276,7 @@
             matchType: 'Rematch'
         }))
     };
+
 
     function countdown() {
         var seconds = 60; // Number of seconds to count down
