@@ -1,36 +1,38 @@
 //moved the JS to this new file 
 
-// var storageItem = sessionStorage.getItem('roundDetails');
-// let roundDetails = JSON.parse(storageItem);
-// console.log(roundDetails.difficulty);
-// var userScore = 0;
-// var computerScore = 0;
-// var difficulty = roundDetails.difficulty; //temp
-// var category = roundDetails.category; //temp
-// var originalRounds = roundDetails.rounds; //fromStrorage
-// var rounds = 1;
-// var originalTurns = roundDetails.turns; //turns based on difficulty //fromStorage
-// var turns = originalTurns;
-// var numberOfHints = 0; //determines how manu hints are created //fromStorage
-// var hints = [];
-// var hintNo = 1; //used to flip between which hints to display.
-// let timer = null;
 
-var roundDetails = sessionStorage.getItem("roundDetails")
+var storageItem = sessionStorage.getItem('roundDetails');
+let roundDetails = JSON.parse(storageItem);
+console.log(roundDetails.difficulty);
+// var roundDetails = sessionStorage.getItem("roundDetails")
 var userScore = 0;
 var computerScore = 0;
-var difficulty = "Lupos"; //temp
-var category = "Food"; //temp
-var originalRounds = 5; //fromStrorage
+var difficulty = roundDetails.difficulty; //temp
+var category = roundDetails.category; //temp
+var originalRounds = roundDetails.rounds; //fromStrorage
 var rounds = 1;
-var originalTurns = 7; //turns based on difficulty //fromStorage
+var originalTurns = roundDetails.turns; //turns based on difficulty //fromStorage
 var turns = originalTurns;
 var numberOfHints = 0; //determines how manu hints are created //fromStorage
 var hints = [];
 var hintNo = 1; //used to flip between which hints to display.
 let timer = null;
-let wordArr = []
-let stopwatch = null;
+
+// var roundDetails = sessionStorage.getItem("roundDetails")
+// var userScore = 0;
+// var computerScore = 0;
+// var difficulty = "Lupos"; //temp
+// var category = "Food"; //temp
+// var originalRounds = 5; //fromStrorage
+// var rounds = 1;
+// var originalTurns = 7; //turns based on difficulty //fromStorage
+// var turns = originalTurns;
+// var numberOfHints = 0; //determines how manu hints are created //fromStorage
+// var hints = [];
+// var hintNo = 1; //used to flip between which hints to display.
+// let timer = null;
+// let wordArr = []
+// let stopwatch = null;
 
 //this function initializes the round, by getting a new word and generating hints
 function initWordRound(category, difficulty) {
@@ -124,7 +126,7 @@ function countdown(restart, stop) {
 var hintI = 1;
 function shuffleHint() {
     console.log("Print hints, ", hintI, " : ", hints[hintI]);
-    if (hintI > originalTurns) {
+    if (hintI >= originalTurns) {
         hintI = 1;
     }
     document.getElementById("hintPanel").innerHTML = hints[hintI];
@@ -139,11 +141,20 @@ function gameCycle() {
         storeDetails(category, sessionStorage.getItem('word'), "player", '-')
         document.location.href = document.location.origin + "/features/results/results-screen.html"
         return true;
+    } else if (computerScore >= userScore) {
+        changeHintPanel("You've loss the game!")
+        storeDetails(category, sessionStorage.getItem('word'), "computer", '-')
+        document.location.href = document.location.origin + "/features/results/results-screen.html"
     } else if (computerScore >= originalRounds || turns <= 0) {
         changeHintPanel("You've loss the game!")
         storeDetails(category, sessionStorage.getItem('word'), "computer", '-')
         document.location.href = document.location.origin + "/features/results/results-screen.html"
-    } else if (userScore > computerScore) {
+    } else if (userScore > computerScore && turns == 0) {
+        changeHintPanel(randomMessage())
+        storeDetails(category, sessionStorage.getItem('word'), "player", '-')
+        document.location.href = document.location.origin + "/features/results/results-screen.html"
+        return true;
+    } else if (userScore > computerScore && rounds == 0) {
         changeHintPanel(randomMessage())
         storeDetails(category, sessionStorage.getItem('word'), "player", '-')
         document.location.href = document.location.origin + "/features/results/results-screen.html"
@@ -212,7 +223,7 @@ function hideControlPanel(isHidden) {
 }
 
 // this is for storing the match details
-function storeDetails(category, word, winner, timestop, words) {
+function storeDetails(category, word, winner, timestop) {
  // this a function call for stop the timer stopTimer()
     const details = {
         category: category,
@@ -293,7 +304,7 @@ function apiCommunicator(category) {
     console.log(msg)
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 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");
+    myHeaders.append("Authorization", "Bearer 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");
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
