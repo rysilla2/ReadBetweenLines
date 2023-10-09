@@ -1,12 +1,14 @@
 //moved the JS to this new file 
 
+var roundDetails = sessionStorage.getItem("roundDetails")
+
 var userScore = 0;
 var computerScore = 0;
-var difficulty = "Lupos"; //temp
-var category = "Country"; //temp
-var originalRounds = 2; //fromStrorage
+var difficulty = JSON.parse(roundDetails).difficulty; //temp
+var category = JSON.parse(roundDetails).category; //temp
+var originalRounds = JSON.parse(roundDetails).rounds; //fromStrorage
 var rounds = 1;
-var originalTurns = 5; //turns based on difficulty //fromStorage
+var originalTurns = JSON.parse(roundDetails).turns; //turns based on difficulty //fromStorage
 var turns = originalTurns;
 var numberOfHints = 0; //determines how manu hints are created //fromStorage
 var hints = [];
@@ -116,17 +118,19 @@ function shuffleHint() {
 //used to handle game cycle/round
 function gameCycle() {
 
-    if (turns <= 0) {
-        return false;
-    }
+    // if (turns <= 0) {
+    //     return false;
+    // }
+
+    
 
     if (userScore >= originalRounds) {
         changeHintPanel(randomMessage())
         storeDetails(category, sessionStorage.getItem('word'), "player", '-')
         return true;
-    } else if (computerScore >= originalRounds) {
+    } else if (computerScore >= originalRounds || turns <= 0) {
         changeHintPanel("You've loss the game!")
-        storeDetails(category, sessionStorage.getItem('word'), "player", '-')
+        storeDetails(category, sessionStorage.getItem('word'), "computer", '-')
         console.log("You've loss the game")
     } else {
         apiCommunicator(category)
@@ -356,7 +360,7 @@ function apiCommunicator(category) {
     console.log(msg)
 
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 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");
+    myHeaders.append("Authorization", "Bearer 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");
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
