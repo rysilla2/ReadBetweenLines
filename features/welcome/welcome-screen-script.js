@@ -8,18 +8,6 @@ function calculateAge() {
   return age;
 }
 
-const getDifficulty = (age) => {
-  let difficulty = "";
-
-  /* Difficulty Based on user's age */
-  if (age <= 8) {
-    difficulty = "Ludus";
-  } else if (age <= 15) {
-    difficulty = "Rhetor";
-  } else {
-    difficulty = "Philosopher";
-  }
-};
 flatpickr("#birthday", {});
 
 const onStart = () => {

@@ -55,4 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
         // Submit the form
         categoryForm.submit();
     });
+
+    
 });
+
+const getDifficulty = () => { sessionStorage.getItem("userInformation");
+    let difficulty = "";
+    let userInformation = sessionStorage.getItem("userInformation"); 
+    let age = JSON.parse(userInformation).age;
+    
+    /* Difficulty Based on user's age */
+    if (age <= 8) {
+      difficulty = "Ludus";
+    } else if (age <= 15) {
+      difficulty = "Rhetor";
+    } else {
+      difficulty = "Philosopher";
+    }
+  };
